@@ -34,6 +34,7 @@ Route::group(['middleware' => ['is_admin',]], function () {
     Route::get('/addUser','AdminstrationController@addUser');
     Route::get('/edit/{id}','AdminstrationController@edit');
     Route::post('/user/update/{id}','AdminstrationController@update');
+    Route::post('/user/search','AdminstrationController@search')->name('search');
     Route::post('/Administration-store','AdminstrationController@store');
     Route::delete('/user/delete/{id}','AdminstrationController@destroy');
 

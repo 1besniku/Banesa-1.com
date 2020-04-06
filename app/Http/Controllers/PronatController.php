@@ -23,19 +23,19 @@ class PronatController extends Controller
 
     public function store(Request $request)
     {
-       dd($request->filename);
+       //dd($request->filename);
 
         $request->validate([
             "objekti" => 'required',
             "numriparceles" => 'required',
             "zonakadastrale" => 'required',
-            "kati" => 'required',
+            "kati" => 'nullable|integer|min:1',
             "lloji" => "required",
             "place" => "required",
             "komuna" => "required",
-            "rooms" => "required",
-            "ngrohja" => "required",
-            "bathroom" => "required",
+            "rooms" => "nullable|integer|min:1|max:2",
+            "ngrohja" => "nullable|string",
+            "bathroom" => "nullable|integer|min:1|max:2",
             "adresa" => "required",
             "price" => "required",
             "komenti" => "required",
@@ -43,7 +43,7 @@ class PronatController extends Controller
             'filename.*' => 'file|mimes:jpeg,jpg,png,svg,gif'
 
         ]);
-
+        if($request->filename != null) {
             if ($request->hasfile('filename')) {
 
                 foreach ($request->file('filename') as $image) {
@@ -53,7 +53,7 @@ class PronatController extends Controller
                 }
             }
             $arr = implode(',', $data);
-
+        }
         $pronat = Property::create([
             'aprovimi' => 0,
             'user_id' => auth()->user()->id,
@@ -71,7 +71,7 @@ class PronatController extends Controller
             'komenti' => $request->komenti,
             'ngrohja' => $request->ngrohja,
             'kati' => $request->kati,
-            'foto' => $arr
+            'foto' => $arr ? $arr : null
 
 
         ]);

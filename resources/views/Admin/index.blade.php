@@ -1,13 +1,16 @@
 @extends('layouts.app')
 @section('content')
 
-
-
-
-
-
-
     <div>
+
+        <form method="post" action="/user/search">
+            @csrf
+        <div class="md-form active-cyan active-cyan-2 mb-3">
+            <input class="form-control" type="text" placeholder="Search" id="search" name="search" aria-label="Search">
+            
+            <button class="btn btn-outline-success mt-3">Kerko</button>
+        </div>
+        </form>
         <h2 class="text-md-center">Administratort</h2>
         <h3><a class="btn btn-success" href="/addUser"> Shto Perdoruesit</a></h3>
         <table class="table">
@@ -20,6 +23,7 @@
             </tr>
             </thead>
             <tbody>
+
             @foreach($useradmin as $useradmin)
                 <tr>
 
@@ -53,6 +57,8 @@
             </tr>
             </thead>
             <tbody>
+
+
             @foreach($user as $user)
                 <tr>
 
@@ -74,8 +80,21 @@
 
             </tbody>
         </table>
-    </div>
 
+        @if(isset($kerko))
+        <div class="mt-5">
+        <ul>
+            @foreach($kerko as $kerko)
+            <li>{{$kerko}}</li>
+                @endforeach
+        </ul>
+        </div>
+            @endif
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<script>
+
+</script>
 
 
 @endsection

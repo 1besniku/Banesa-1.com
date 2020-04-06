@@ -14,7 +14,7 @@ class AdminstrationController extends Controller
         $useradmin = User::where('is_admin', '=', '1')->get();
         $user = User::where('is_admin', '=', '0')->get();
 
-        return view('Admin.index', compact('useradmin','user'));
+        return view('Admin.index', compact('useradmin', 'user'));
 
     }
 
@@ -52,7 +52,8 @@ class AdminstrationController extends Controller
         return redirect('/Administration');
     }
 
-    public function update(Request $request,User $user,$id){
+    public function update(Request $request, User $user, $id)
+    {
         //dd($request);
         $data = $request->validate([
             'name' => 'sometimes|required|min:3',
@@ -63,13 +64,13 @@ class AdminstrationController extends Controller
 
         $user = User::find($id);
         //$user->update($request->all())
-        if($request->password == null){
+        if ($request->password == null) {
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
                 'number_sms' => $request->number_sms,
             ]);
-        }else{
+        } else {
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -91,5 +92,9 @@ class AdminstrationController extends Controller
         return redirect('/Administration');
     }
 
+    public function search(Request $request)
+    {
 
+
+    }
 }
