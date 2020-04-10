@@ -7,7 +7,9 @@ use App\Property;
 use App\toka;
 use App\User;
 use Illuminate\Http\Request;
+use \Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Hash;
+
 
 class PronatController extends Controller
 {
@@ -20,66 +22,76 @@ class PronatController extends Controller
     }
 
 
-
     public function store(Request $request)
     {
-       //dd($request->filename);
+        //dd($request->filename);
+        if ($request->filename == null) {
+            return back();
+        } else {
+            $request->validate([
+                "objekti" => 'required',
+                "numriparceles" => 'required',
+                "zonakadastrale" => 'required',
+                "kati" => 'nullable|integer|min:1',
+                "lloji" => "required",
+                "place" => "required",
+                "komuna" => "required",
+                "rooms" => "nullable|integer",
+                "ngrohja" => "nullable|string",
+                "bathroom" => "nullable|integer|",
+                "adresa" => "required",
+                "price" => "required",
+                "komenti" => "required",
+                'phone' => 'required',
+                'filename.*' => 'required|file|mimes:jpeg,jpg,png,svg,gif'
 
-        $request->validate([
-            "objekti" => 'required',
-            "numriparceles" => 'required',
-            "zonakadastrale" => 'required',
-            "kati" => 'nullable|integer|min:1',
-            "lloji" => "required",
-            "place" => "required",
-            "komuna" => "required",
-            "rooms" => "nullable|integer|min:1|max:2",
-            "ngrohja" => "nullable|string",
-            "bathroom" => "nullable|integer|min:1|max:2",
-            "adresa" => "required",
-            "price" => "required",
-            "komenti" => "required",
-            'phone' => 'required',
-            'filename.*' => 'file|mimes:jpeg,jpg,png,svg,gif'
+            ]);
 
-        ]);
-        if($request->filename != null) {
+
+            $pronat = Property::create([
+                'aprovimi' => 0,
+                'user_id' => auth()->user()->id,
+                'llojishpalljes' => $request->objekti,
+                'numri_parceles' => $request->numriparceles,
+                'zona_kadastrale' => $request->zonakadastrale,
+                'lloji' => $request->lloji,
+                'siperfaqja' => $request->place,
+                'komuna' => $request->komuna,
+                'adresa' => $request->adresa,
+                'numri_banjove' => $request->bathroom,
+                'numri_dhomave' => $request->rooms,
+                'numri_tel' => $request->phone,
+                'qmimi' => $request->price,
+                'komenti' => $request->komenti,
+                'ngrohja' => $request->ngrohja,
+                'kati' => $request->kati,
+                //  'foto' => $arr
+
+
+            ]);
+            // dd($pronat->foto);
             if ($request->hasfile('filename')) {
 
                 foreach ($request->file('filename') as $image) {
-                    $name = uniqid() . $image->getClientOriginalName();
-                    $image->store('uploads', 'public');
-                    $data[] = $name;
+
+                    $fileName = uniqid() . $image->getClientOriginalName();
+                    $test = $image->move(public_path('/images/'), $fileName);
+                    // dd($test);
+                    $img = Image::make(public_path('/images/' . $fileName))->resize(300, 200);
+                    $data[] = $fileName;
+                    $img->save();
+
                 }
+                $arr = implode(',', $data);
+               // dd($arr);
+                $pronat->update([
+                    'foto' => $arr,
+                ]);
             }
-            $arr = implode(',', $data);
         }
-        $pronat = Property::create([
-            'aprovimi' => 0,
-            'user_id' => auth()->user()->id,
-            'llojishpalljes' => $request->objekti,
-            'numri_parceles' => $request->numriparceles,
-            'zona_kadastrale'=>$request->zonakadastrale ,
-            'lloji' => $request->lloji,
-            'siperfaqja' => $request->place,
-            'komuna' => $request->komuna,
-            'adresa' => $request->adresa,
-            'numri_banjove' => $request->bathroom,
-            'numri_dhomave' => $request->rooms,
-            'numri_tel' => $request->phone,
-            'qmimi' => $request->price,
-            'komenti' => $request->komenti,
-            'ngrohja' => $request->ngrohja,
-            'kati' => $request->kati,
-            'foto' => $arr ? $arr : null
 
-
-        ]);
-
-
-        return redirect('/pronat')->with('u regjistrua');
+        return 'u regjistrua';
     }
-
 
 
 }

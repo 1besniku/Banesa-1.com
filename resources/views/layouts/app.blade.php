@@ -37,7 +37,7 @@
                 <ul class="navbar-nav mr-auto">
                     @if(Auth::user() && Auth::user()->is_admin == 1)
                     <li class="nav-item" >
-                        <a class="nav-link" href="/Administration">Shto Adminin</a>
+                        <a class="nav-link" href="/Administration">Administrimi</a>
                     </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/aprovim">Aprovo Shpalljet</a>

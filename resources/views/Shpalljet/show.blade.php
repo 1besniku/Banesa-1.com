@@ -21,7 +21,7 @@
 
         @foreach($explode as $image)
 
-            <img src="{{asset('storage/uploads/'. $property->foto)}}" alt="foto" class="img-thumbnail">
+            <img src="{{asset('/images/'. $image)}}" alt="foto" class="img-thumbnail">
 
         @endforeach
 

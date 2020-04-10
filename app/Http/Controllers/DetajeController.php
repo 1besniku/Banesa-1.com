@@ -15,7 +15,9 @@ class DetajeController extends Controller
         //dd($id);
 
         $property = Property::find($id);
-        $explode = explode(',',$property->images);
+
+        $explode = explode(',',$property->foto);
+
         $user = User::find($property->user_id);
 
         return view('Shpalljet.show', compact('property', 'user', 'explode'));

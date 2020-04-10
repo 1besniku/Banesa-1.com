@@ -23,7 +23,7 @@ Auth::routes();
 Route::get('/pronat', 'PronatController@index');
 Route::get('/pronat-objekt', 'PronatController@objektet');
 
-
+Route::post('/search/shpalljet', 'ShpalljetController@search');
 Route::get('/Shpalljet' , 'ShpalljetController@index');
 Route::post('/pronat-store', 'PronatController@store');
 Route::get('detaje/{id}', 'DetajeController@index');

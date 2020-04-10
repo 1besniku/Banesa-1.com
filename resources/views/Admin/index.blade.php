@@ -7,7 +7,7 @@
             @csrf
         <div class="md-form active-cyan active-cyan-2 mb-3">
             <input class="form-control" type="text" placeholder="Search" id="search" name="search" aria-label="Search">
-            
+
             <button class="btn btn-outline-success mt-3">Kerko</button>
         </div>
         </form>

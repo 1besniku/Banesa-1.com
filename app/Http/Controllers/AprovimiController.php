@@ -10,7 +10,7 @@ class AprovimiController extends Controller
 {
     //
     public function index(){
-        $property = \App\Property::latest()->get();
+        $property = \App\Property::latest()->paginate(5);
 
 
         return view('Aprovimi.index', compact('property', 'tokat'));
