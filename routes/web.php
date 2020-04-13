@@ -21,6 +21,7 @@ Auth::routes();
 
 
 Route::get('/pronat', 'PronatController@index');
+Route::get('/test', 'testController@index');
 Route::get('/pronat-objekt', 'PronatController@objektet');
 
 Route::post('/search/shpalljet', 'ShpalljetController@search');
