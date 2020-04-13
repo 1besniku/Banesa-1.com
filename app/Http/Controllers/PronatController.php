@@ -24,7 +24,7 @@ class PronatController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request->filename);
+  // dd($request->all());
         if ($request->filename == null) {
             return back();
         } else {
@@ -32,7 +32,7 @@ class PronatController extends Controller
                 "objekti" => 'required',
                 "numriparceles" => 'required',
                 "zonakadastrale" => 'required',
-                "kati" => 'nullable|integer|min:1',
+                "kati" => 'nullable',
                 "lloji" => "required",
                 "place" => "required",
                 "komuna" => "required",

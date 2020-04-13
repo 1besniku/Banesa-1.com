@@ -42,13 +42,33 @@
             <div class="form-group row">
                 <label class="col-md-2 col-form-label text-md-right" for="kati">kati</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="kati" name="kati" placeholder="kati"
-                           value="{{old('kati')}}">
-                    @error('kati')
-                    {{$message}}
-                    @enderror
+                    <select class="form-control form-control-lg" name="kati" id="kati">
+                        <option value="0">Zgjedh</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
                 </div>
             </div>
+
             <div class="form-group row">
                 <label class="col-md-2 col-form-label text-md-right" for="ngrohja">Ngrohja</label>
                 <div class="col-md-6">
@@ -114,11 +134,34 @@
             <div class="form-group row">
                 <label class="col-md-2 col-form-label text-md-right" for="komuna">Komuna</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="komuna" name="komuna" placeholder="komuna"
-                           value="{{old('komuna')}}">
-                    @error('komuna')
-                    {{$message}}
-                    @enderror
+                    <select class="form-control form-control-lg" name="komuna" id="komuna">
+                        <option value="0">Zgjedh</option>
+                        <option value="Prishtin">Prishtin</option>
+                        <option value="Fushë Kosovë">Fushë Kosovë </option>
+                        <option value="Pej">Pej</option>
+                        <option value="Prizeren">Prizeren</option>
+                        <option value="Obiliq">Obiliq</option>
+                        <option value="Vushtrri">Vushtrri</option>
+                        <option value="Mitrovic">Mitrovic</option>
+                        <option value="Skenderaj">Skenderaj</option>
+                        <option value="Gllogoc">Gllogoc</option>
+                        <option value="Viti">Viti</option>
+                        <option value="Ferizaj">Ferizaj</option>
+                        <option value="Podujev">Podujev</option>
+                        <option value="Rahovec">Rahovec</option>
+                        <option value="Shtime">Shtime</option>
+                        <option value="Malishevë">Malishevë</option>
+                        <option value="Lipjan">Lipjan </option>
+                        <option value="Kamenicë">Kamenicë </option>
+                        <option value="Deçan">Deçan </option>
+                        <option value="Kaçanik">Kaçanik </option>
+                        <option value="Gjakovë">Gjakovë </option>
+                        <option value="Gjilan">Gjilan </option>
+                        <option value="Dragash">Dragash </option>
+                        <option value="Istog">Istog </option>
+                        <option value="Klinë">Klinë </option>
+                        <option value="Junik">Junik </option>
+                    </select>
                 </div>
             </div>
 

@@ -8,6 +8,7 @@
         <ul>
             <li>Prona:   {{$property->llojishpalljes}}, {{$property->lloji}}.</li>
             <li>Komuna: {{$property->komuna}}.</li>
+            <li>Kati: {{$property->kati}}.</li>
             <li>Paracela:  {{$property->numri_parceles}}</li>
             <li>Zona Kadastrale: {{$property->zona_kadastrale}}</li>
             <li>Hapsira,Siperfaqja: {{$property->siperfaqja}}</li>
