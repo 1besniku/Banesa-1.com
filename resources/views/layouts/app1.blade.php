@@ -1,131 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <title>themmsproject</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Banesat</title>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/7135c7649e.js" crossorigin="anonymous"></script>
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<link rel="stylesheet" href="style.css">
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-</html>
 <body>
-
-
 
 <header class="bg-red-600 flex felx-row p-6 dip justify-between">
     <nav>
         <ul class="flex">
-            <li class="mr-6"> <a  class="text-white" href="#">Ballina</a></li>
-            <li class="mr-6"> <a  class="text-white" href="#" >Shpallje</a></li>
-            <li class="mr-6"> <a  class="text-white" href="#">Kontakti</a></li>
-            <li class="mr-6"> <a  class="text-white" href="#">Informohu</a></li>
-            <li class="mr-6"> <a  class="text-white" href="#">Te rejat</a></li>
+            @if(Auth::user() && Auth::user()->is_admin == 1)
+                <li class="mr-6"><a class="text-white" href="/Administration">Administrimi</a></li>
+                <li class="mr-6"><a class="text-white" href="/aprovim">Aprovo Shpalljet</a></li>
+            @endif
+            @if(Auth::check())
+                <li class="mr-6"><a class="text-white" href="/pronat">Posto Shpallje</a></li>
+            @endif
+                <li class="mr-6"><a class="text-white" href="/Shpalljet">Shpalljet</a></li>
         </ul>
-
     </nav>
     <div>
-        <ul class="flex ">
-            <li class="mr-6"><a class="text-white" href="#">Login</a></li>
-            <li class="mr-6"><a class="text-white" href="#">Register</a></li>
+        <ul class="flex">
+            @guest
+                <li class="mr-6"><a class="text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                @if (Route::has('register'))
+                    <li class="mr-6"><a class="text-white" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                @endif
+            @else
+                <li class="mr-6">
+                    <a id="navbarDropdown" class="text-white" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="text-white" aria-labelledby="navbarDropdown">
+                        <a  href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
         </ul>
-
+        @endguest
     </div>
+    </nav>
+
 </header>
-<main class="bg-pink-300 p-32">
-    <h6 class="text-center -mt-24">Cfar po Kerkoni</h6>
-    <div class="flex justify-center">
-        <div class="pt-10">
-            <button class="mr-24 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">Ballina</button>
-            <button class="mr-24 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">Shpallje</button>
-            <button class="mr-24 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">Kontakti</button>
-            <button class="mr-24 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">Informohu</button>
-            <button class="mr-24 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">Te Reja</button>
-        </div>
-
-    </div>
-
-    <div class="flex justify-center mt-24 ">
-        <form class="w-full max-w-sm">
-            <div class="flex items-center border-b border-b-2 border-teal-500 py-2">
-                <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Jane Doe" aria-label="Full name">
-                <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
-                    Kerko
-                </button>
-
-            </div>
-        </form>
-    </div>
-</main>
-<section class="bg-gray-100 p-32 py-64">
-    <div class="flex ">
-        <div class="shadow p-6 mr-12 w-1/4 text-center">
-            <div>
-
-                <div class="flex justify-between mb-6">
-                    <h5>Our Project</h5>
-
-                    <span>2020</span>
-                </div>
-
-                <img src="/images/Portada.jpg" alt="logo" >
-
-                <p class="mb-8 text-grey-darkest leading-normal">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"> Start learning</a>
-            </div>
-        </div>
-        <div class="shadow p-6 mr-12 w-1/4 text-center">
-            <div>
-
-                <div class="flex justify-between mb-6">
-                    <h5>Our Project</h5>
-
-                    <span>2020</span>
-                </div>
-
-                <img src="/images/Portada.jpg" alt="logo" >
-
-                <p class="mb-8 text-grey-darkest leading-normal">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"> Start learning</a>
-            </div>
-        </div>
-        <div class="shadow p-6 mr-12 w-1/4 text-center">
-            <div>
-
-                <div class="flex justify-between mb-6">
-                    <h5>Our Project</h5>
-
-                    <span>2020</span>
-                </div>
-
-                <img src="/images/Portada.jpg" alt="logo" >
-
-                <p class="mb-8 text-grey-darkest leading-normal">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"> Start learning</a>
-            </div>
-        </div>
-        <div class="shadow p-6 mr-12 w-1/4 text-center">
-            <div>
-
-                <div class="flex justify-between mb-6">
-                    <h5>Our Project</h5>
-
-                    <span>2020</span>
-                </div>
-
-                <img src="/images/Portada.jpg" alt="logo" >
-
-                <p class="mb-8 text-grey-darkest leading-normal">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"> Start learning</a>
-            </div>
-        </div>
-    </div>
-
+<section  class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+    @yield('content')
 </section>
 <footer class="bg-gray-200 p-6 py-40 ">
     <div class="flex">
@@ -152,15 +94,14 @@
 </footer>
 
 
-
-
-
-
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
+</html>

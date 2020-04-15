@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
-        <h1 class="text-md-center">Te dhenat</h1>
+   <h1 class="text-right"> Postuar nga: {{$user->name}}</h1>
+        <h1 class="text-center font-bold text-3xl">Te dhenat</h1>
 
-        <p> Postuar nga: {{$user->name}}</p>
+
 
         <ul>
             <li>Prona:   {{$property->llojishpalljes}}, {{$property->lloji}}.</li>
@@ -27,6 +27,5 @@
         @endforeach
 
         <p><a class="btn btn-success" href="/Shpalljet">Kthehu</a> </p>
-    </div>
 
 @endsection

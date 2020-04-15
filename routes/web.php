@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
+Route::get('/','ShpalljetController@index');
 Route::get('/pronat', 'PronatController@index');
 Route::get('/test', 'testController@index');
 Route::get('/pronat-objekt', 'PronatController@objektet');
