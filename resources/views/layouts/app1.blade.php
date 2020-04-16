@@ -21,87 +21,94 @@
 </head>
 <body>
 
-<header class="bg-red-600 flex felx-row p-6 dip justify-between">
-    <nav>
-        <ul class="flex">
+<nav class="flex items-center justify-between flex-wrap bg-red-500 p-6">
+
+    <div class="block lg:hidden">
+        <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+        </button>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
             @if(Auth::user() && Auth::user()->is_admin == 1)
-                <li class="mr-6"><a class="text-white" href="/Administration">Administrimi</a></li>
-                <li class="mr-6"><a class="text-white" href="/aprovim">Aprovo Shpalljet</a></li>
+                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/Administration">Administrimi</a>
+                <a  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/aprovim">Aprovo Shpalljet</a>
             @endif
             @if(Auth::check())
-                <li class="mr-6"><a class="text-white" href="/pronat">Posto Shpallje</a></li>
+                <a  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/pronat">Posto Shpallje</a>
             @endif
-                <li class="mr-6"><a class="text-white" href="/Shpalljet">Shpalljet</a></li>
-        </ul>
-    </nav>
-    <div>
-        <ul class="flex">
-            @guest
-                <li class="mr-6"><a class="text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                @if (Route::has('register'))
-                    <li class="mr-6"><a class="text-white" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                @endif
-            @else
-                <li class="mr-6">
-                    <a id="navbarDropdown" class="text-white" href="#" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-                    <div class="text-white" aria-labelledby="navbarDropdown">
-                        <a  href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+            <a   class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/Shpalljet">Shpalljet</a>
+        </div>
+        <div>
+            <ul class="flex">
+                @guest
+                    <li class="mr-6"><a class="text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    @if (Route::has('register'))
+                        <li class="mr-6"><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                    @endif
+                @else
+                    <li class="mr-6">
+                        <a id="navbarDropdown" class="text-white" href="#" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                              style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-        </ul>
-        @endguest
-    </div>
-    </nav>
+                        <div class="text-white" aria-labelledby="navbarDropdown">
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-</header>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+            </ul>
+            @endguest
+        </div>
+    </div>
+</nav>
 <section  class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
     @yield('content')
 </section>
-<footer class="bg-gray-200 p-6 py-40 ">
-    <div class="flex">
-        <div class="p-6 mr-12 w-1/2 text-center">
-            <h4 class="mb-6">Sponsoret</h4>
-            <p>Pavbit</p>
-            <p>Innovation Center Kosova</p>
-            <p>Akademia Virutuale</p>
-            <p>Kolegji Universum</p>
+
+
+<footer class="footer bg-gray-300 relative pt-1 border-b-2 border-blue-700">
+    <div class="container mx-auto px-6">
+
+        <div class="sm:flex sm:mt-8">
+            <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
+                <div class="flex flex-col">
+                    <span class="font-bold text-gray-700 uppercase mb-2">Footer header 1</span>
+                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
+                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
+                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">Footer header 2</span>
+                    <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">link 1</a></span>
+                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
+                    <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">link 1</a></span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">Footer header 3</span>
+                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
+                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
+                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
+                </div>
+            </div>
         </div>
-        <div class="p-6 mr-12 w-1/2 text-center">
-            <h4 class="mb-6">Info</h4>
-            <p>info@banesat.com</p>
-            <p>hr@banesat.com</p>
-        </div>
-        <div class="p-6 mr-12 w-1/2 text-center">
-            <h4 class="mb-6">Kontakti</h4>
-            <p>+38344411222</p>
-            <p>+38344221222</p>
-            <p>+38344216222</p>
-            <p>+38344411245</p>
+    </div>
+    <div class="container mx-auto px-6">
+        <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
+            <div class="sm:w-2/3 text-center py-6">
+                <p class="text-sm text-blue-700 font-bold mb-2">
+                    Product by: PAVBIT.
+                </p>
+            </div>
         </div>
     </div>
 </footer>
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-</body>
 </html>
