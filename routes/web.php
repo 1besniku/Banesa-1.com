@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/','BallinaController@index');
+Route::get('/about','DetajeController@about');
 
 Route::get('/test', 'testController@index');
 Route::get('/contact', 'KontakController@index');

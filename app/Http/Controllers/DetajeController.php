@@ -23,4 +23,8 @@ class DetajeController extends Controller
         return view('Shpalljet.show', compact('property', 'user', 'explode'));
 
     }
+    public function about(){
+
+        return view('RrethNesh.index');
+    }
 }
