@@ -4,7 +4,15 @@
 
     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
-            <h1 class="text-center mb-6">Mbushe fromularin per te postuar shaplljen.</h1>
+            @if (session('status'))
+
+                <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+                    <p class="font-bold">Informacion</p>
+                    <p> {{ session('status') }}</p>
+                </div>
+
+            @endif
+            <h1 class="text-center mb-6 mt-6">Mbushe fromularin per te postuar shaplljen.</h1>
             <form method="post" action="pronat-store" enctype="multipart/form-data">
                 @csrf
 

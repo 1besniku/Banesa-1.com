@@ -90,7 +90,7 @@ class PronatController extends Controller
             }
         }
 
-        return 'u regjistrua';
+        return redirect('/pronat')->with('status', 'Shpallja u postua, ju lutem prisni per aporvim!');
     }
 
 

@@ -28,7 +28,7 @@ class AprovimiController extends Controller
         $property->update([
             'aprovimi' => $request->app
         ]);
-        return "u aprovua me sukses";
+        return redirect('/aprovim')->with('status', 'U aprovua me sukses!');
     }
 
         public function destroy($id)

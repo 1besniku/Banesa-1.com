@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
-Route::get('/','ShpalljetController@index');
-Route::get('/pronat', 'PronatController@index');
+Route::get('/','BallinaController@index');
+
 Route::get('/test', 'testController@index');
-Route::get('/pronat-objekt', 'PronatController@objektet');
+Route::get('/contact', 'KontakController@index');
+Route::post('contact-store', 'KontakController@store');
+
 
 Route::post('/search/shpalljet', 'ShpalljetController@search');
 Route::get('/Shpalljet' , 'ShpalljetController@index');
@@ -30,6 +30,7 @@ Route::post('/pronat-store', 'PronatController@store');
 Route::get('detaje/{id}', 'DetajeController@index');
 Route::group(['middleware' => ['is_admin',]], function () {
     Route::get('/aprovim', 'AprovimiController@index');
+    Route::get('/message', 'KontakController@show');
     Route::post('/aprovim-update', 'AprovimiController@update');
     Route::get('/Administration','AdminstrationController@index');
     Route::get('/addUser','AdminstrationController@addUser');
@@ -40,6 +41,9 @@ Route::group(['middleware' => ['is_admin',]], function () {
     Route::delete('/user/delete/{id}','AdminstrationController@destroy');
 
     Route::delete('/aprovim/delete/{id}','AprovimiController@destroy');
+});
+Route::group(['middleware' => ['auth',]], function () {
+    Route::get('/pronat', 'PronatController@index');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

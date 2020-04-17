@@ -23,7 +23,7 @@
 
 <nav class="flex items-center justify-between flex-wrap bg-red-500 p-6">
 
-    <div class="block lg:hidden">
+    <div id="button" class="block lg:hidden"  >
         <button
             class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title>
@@ -31,19 +31,24 @@
             </svg>
         </button>
     </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div id='nav' class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
             @if(Auth::user() && Auth::user()->is_admin == 1)
                 <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
                    href="/Administration">Administrimi</a>
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/aprovim">Aprovo
-                    Shpalljet</a>
+                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/aprovim">Aprovo Shpalljet</a>
+                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/message">Mesazhat</a>
             @endif
             @if(Auth::check())
                 <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/pronat">Posto
                     Shpallje</a>
             @endif
-            <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/Shpalljet">Shpalljet</a>
+
+                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/">Ballina</a>
+
+                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/Shpalljet">Shpalljet</a>
+                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="#">Rreth Nesh</a>
+                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/contact">Kontakti</a>
         </div>
         <div>
             <ul class="flex">
@@ -161,5 +166,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#button").click(function(){
+            $("#nav").toggle();
+        });
+    });
+</script>
 </body>
 </html>
