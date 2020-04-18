@@ -52,6 +52,9 @@
         </div>
         <div>
             <ul class="flex">
+                @if(Auth::check())
+                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/accont">Llogaria</a>
+               @endif
                 @guest
                     <li class="mr-6"><a class="text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                     @if (Route::has('register'))

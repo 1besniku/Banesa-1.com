@@ -45,6 +45,8 @@ Route::group(['middleware' => ['is_admin',]], function () {
 });
 Route::group(['middleware' => ['auth',]], function () {
     Route::get('/pronat', 'PronatController@index');
+    Route::get('/accont', 'LlogariaController@index');
+    Route::delete('/llogaria/delete/{id}', 'LlogariaController@delete');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
