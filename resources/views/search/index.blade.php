@@ -1,4 +1,7 @@
 @extends('layouts.app1')
+@section('titulli')
+   Rezultati I Kerkimit
+@endsection
 @section('content')
 <table class="border-collapse w-full">
     <thead>

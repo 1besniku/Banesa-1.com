@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\DocBlock\Tags\Property;
 
 class BallinaController extends Controller
 {
     //
     public function index(){
-        return view('Ballina.index');
+        $arr = \App\Property::all();
+        return view('layouts.app',compact('arr'));
     }
 }

@@ -18,35 +18,34 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/','BallinaController@index');
-Route::get('/about','DetajeController@about');
+Route::get('/about','DetajeController@about')->name('about');
 
 Route::get('/test', 'testController@index');
-Route::get('/contact', 'KontakController@index');
-Route::post('contact-store', 'KontakController@store');
+Route::get('/contact', 'KontakController@index')->name('contact');
+Route::post('contact-store', 'KontakController@store')->name('contact_store');
 
 
-Route::post('/search/shpalljet', 'ShpalljetController@search');
-Route::get('/Shpalljet' , 'ShpalljetController@index');
-Route::post('/pronat-store', 'PronatController@store');
-Route::get('detaje/{id}', 'DetajeController@index');
+Route::post('/search/shpalljet', 'ShpalljetController@search')->name('search_shpalljet');
+Route::get('/shpalljet' , 'ShpalljetController@index')->name('shpalljet');
+Route::post('/pronat-store', 'PronatController@store')->name('pronat_store');
+Route::get('detaje/{id}', 'DetajeController@index')->name('detajet');
 Route::group(['middleware' => ['is_admin',]], function () {
-    Route::get('/aprovim', 'AprovimiController@index');
-    Route::get('/message', 'KontakController@show');
-    Route::post('/aprovim-update', 'AprovimiController@update');
-    Route::get('/Administration','AdminstrationController@index');
-    Route::get('/addUser','AdminstrationController@addUser');
-    Route::get('/edit/{id}','AdminstrationController@edit');
-    Route::post('/user/update/{id}','AdminstrationController@update');
-    Route::post('/user/search','AdminstrationController@search')->name('search');
-    Route::post('/Administration-store','AdminstrationController@store');
-    Route::delete('/user/delete/{id}','AdminstrationController@destroy');
-
-    Route::delete('/aprovim/delete/{id}','AprovimiController@destroy');
+    Route::get('/aprovim', 'AprovimiController@index')->name('aprovimi');
+    Route::get('/message', 'KontakController@show')->name('message');
+    Route::post('/aprovim-update', 'AprovimiController@update')->name('aprovimi_update');
+    Route::get('/administrimi','AdminstrationController@index')->name('administrimi');
+    Route::get('/addUser','AdminstrationController@addUser')->name('addUser');
+    Route::get('/edit/{id}','AdminstrationController@edit')->name('editmi');
+    Route::post('/user/update/{id}','AdminstrationController@update')->name('user_update');
+    Route::post('/user/search','AdminstrationController@search')->name('user_search');
+    Route::post('/Administration-store','AdminstrationController@store')->name('admistrimi_store');
+    Route::delete('/user/delete/{id}','AdminstrationController@destroy')->name('user_delete');
+    Route::delete('/aprovim/delete/{id}','AprovimiController@destroy')->name('aprovimi_delete');
 });
 Route::group(['middleware' => ['auth',]], function () {
-    Route::get('/pronat', 'PronatController@index');
-    Route::get('/accont', 'LlogariaController@index');
-    Route::delete('/llogaria/delete/{id}', 'LlogariaController@delete');
+    Route::get('/pronat', 'PronatController@index')->name('pronat');
+    Route::get('/accont', 'LlogariaController@index')->name('accont');
+    Route::delete('/llogaria/delete/{id}', 'LlogariaController@delete')->name('llogaria_delete');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

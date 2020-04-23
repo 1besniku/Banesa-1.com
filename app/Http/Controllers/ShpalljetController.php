@@ -15,7 +15,7 @@ class ShpalljetController extends Controller
 
         $pronat = Property::all();
 
-        return view('Shpalljet.index', compact('pronat'));
+        return view('shpalljet.index', compact('pronat'));
     }
 
     public function search(Request $request)
@@ -40,7 +40,7 @@ class ShpalljetController extends Controller
                 ->where('lloji', '=', $request->lloji)
                 ->get();
             //dd($search);
-            return view('Shpalljet.index', compact('search'));
+            return view('shpalljet.index', compact('search'));
 
         } elseif ($request->komuna != '0'and $request->qmimi == null and $request->kati == '0'and $request->hapsira == null) {
             // dd($request);
@@ -49,7 +49,7 @@ class ShpalljetController extends Controller
                 ->where('komuna', '=', $request->komuna)
                 ->get();
             //dd($search);
-            return view('Shpalljet.index', compact('search'));
+            return view('shpalljet.index', compact('search'));
         } elseif ($request->komuna != '0' and $request->qmimi != null and $request->kati == '0' and $request->hapsira == null) {
             // dd($request);
             $search = Property::where('llojishpalljes', 'Like', $request->llojishpalljes)
@@ -57,7 +57,7 @@ class ShpalljetController extends Controller
                 ->where('komuna', '=', $request->komuna)
                 ->where('qmimi', '>=', $request->qmimi)
                 ->get();
-            return view('Shpalljet.index', compact('search'));
+            return view('shpalljet.index', compact('search'));
         } elseif ($request->komuna != '0' and $request->qmimi != null and $request->kati != '0' and $request->hapsira == null) {
             $search = Property::where('llojishpalljes', 'Like', $request->llojishpalljes)
                 ->where('lloji', '=', $request->lloji)
@@ -66,7 +66,7 @@ class ShpalljetController extends Controller
                 ->where('kati', '=', $request->kati)
                 ->get();
 
-            return view('Shpalljet.index', compact('search'));
+            return view('shpalljet.index', compact('search'));
         } elseif ($request->komuna != '0' and $request->qmimi != null and $request->kati != '0' and $request->hapsira != null) {
             $search = Property::where('llojishpalljes', 'Like', $request->llojishpalljes)
                 ->where('lloji', '=', $request->lloji)
@@ -75,20 +75,20 @@ class ShpalljetController extends Controller
                 ->where('kati', '=', $request->kati)
                 ->where('siperfaqja', '>=', $request->hapsira)
                 ->get();
-            return view('Shpalljet.index', compact('search'));
+            return view('shpalljet.index', compact('search'));
         } elseif ($request->komuna == '0' and $request->qmimi != null and $request->kati == '0' and $request->hapsira == null) {
             $search = Property::where('llojishpalljes', 'Like', $request->llojishpalljes)
                 ->where('lloji', '=', $request->lloji)
                 ->where('qmimi', '<=', $request->qmimi)
                 ->get();
-            return view('Shpalljet.index', compact('search'));
+            return view('shpalljet.index', compact('search'));
         } elseif ($request->komuna == '0' and $request->qmimi == null and $request->kati != '0' and $request->hapsira == null) {
             $search = Property::where('llojishpalljes', 'Like', $request->llojishpalljes)
                 ->where('lloji', '=', $request->lloji)
                 ->where('kati', '=', $request->kati)
                 ->get();
 
-            return view('Shpalljet.index', compact('search'));
+            return view('shpalljet.index', compact('search'));
 
 
         } elseif ($request->komuna == '0' and $request->qmimi == null and $request->kati == '0' and $request->hapsira != null) {
@@ -97,7 +97,7 @@ class ShpalljetController extends Controller
                 ->where('siperfaqja', '<=', $request->hapsira)
                 ->get();
 
-            return view('Shpalljet.index', compact('search'));
+            return view('shpalljet.index', compact('search'));
 
         }
     }

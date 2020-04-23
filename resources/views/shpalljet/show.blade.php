@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('titulli')
+    Detajet
+@endsection
 @section('content')
    <h1 class="text-right"> Postuar nga: {{$user->name}}</h1>
         <h1 class="text-center font-bold text-3xl">Te dhenat</h1>
@@ -23,6 +26,8 @@
         @foreach($explode as $image)
 
             <img src="{{asset('/images/'. $image)}}" alt="foto" class="img-thumbnail">
+
+            <img src="{{asset('/thumbnail/'. $image)}}" alt="foto" class="img-thumbnail">
 
         @endforeach
 

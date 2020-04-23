@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('titulli')
+   Posto Shpallje
+@endsection
 @section('content')
 
 
@@ -25,6 +28,7 @@
                             <option value="Shtepi">Shtepi</option>
                             <option value="Banes">Banes</option>
                             <option value="Tok">Truall</option>
+                            <option value="Lokal">Lokal</option>
                         </select>
                     </div>
                 </div>
@@ -252,16 +256,76 @@
                         </div>
                     </div>
                 </div>
-
+                <input type="hidden" id="lat" name="lat">
+                <input type="hidden" id="lng" name="lng">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
                     Shto
                 </button>
 
 
             </form>
+            <div id="map"></div>
         </div>
     </div>
+<style>
+    #map{
+        height: 200px; /* The height is 400 pixels */
+        width: 100%;
+    }
+</style>
+
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script>
+
+
+        function initMap() {
+            {
+                var uluru = {lat: 42.667542, lng: 21.166191};
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 10,
+                    center: uluru,
+                    disableDefaultUI: true
+                });
+                map.addListener('click', function (e) {
+                    placeMarkerAndPanTo(e.latLng, map);
+                });
+            }
+
+            function placeMarkerAndPanTo(latLng, map) {
+
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map,
+
+                });
+                var lat = latLng.lat().toFixed(6);
+                var lng = latLng.lng().toFixed(6);
+                getCords(lat,lng)
+
+            }
+            function getCords(lat,lng) {
+
+                // Reference input html element with id=”lat”.
+                var coords_lat = document.getElementById('lat');
+
+                // Update latitude text box.
+                coords_lat.value = lat;
+
+                // Reference input html element with id=”lng”.
+                var coords_lng = document.getElementById('lng');
+
+                // Update longitude text box.
+                coords_lng.value = lng;
+            }
+
+        }
+
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdUaSDlzKuCgMb6mRNXUw1Vzx7Q4kFR6Y&callback=initMap">
+    </script>
     <script type="text/javascript">
 
         $(document).ready(function () {

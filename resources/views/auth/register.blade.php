@@ -18,7 +18,16 @@
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-
+                    <input
+                        type="text"
+                        id="name"
+                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('surname') is-invalid @enderror " name ='surname' value="{{ old('surname')}}" required autocomplete="surname" autofocus
+                        placeholder="Mbiemri" />
+                    @error('surname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                     <input
                         type="text"
                         class="block border border-grey-light w-full p-3 rounded mb-4 @error('email') is-invalid @enderror"  value="{{ old('email') }}" required autocomplete="email"

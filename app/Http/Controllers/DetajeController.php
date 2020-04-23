@@ -20,11 +20,11 @@ class DetajeController extends Controller
 
         $user = User::find($property->user_id);
 
-        return view('Shpalljet.show', compact('property', 'user', 'explode'));
+        return view('shpalljet.show', compact('property', 'user', 'explode'));
 
     }
     public function about(){
 
-        return view('RrethNesh.index');
+        return view('rrethNesh.index');
     }
 }

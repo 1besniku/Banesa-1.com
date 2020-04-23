@@ -1,4 +1,7 @@
 @extends('layouts.app1')
+@section('titulli')
+    Editimi
+@endsection
 @section('content')
 
     <form method="post" action="/user/update/{{$user['id']}}" autocomplete="off">

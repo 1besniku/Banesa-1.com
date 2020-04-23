@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('titulli')
+   Ballina
+@endsection
 @section('content')
     <div class="bg-gray-100 relative pt-1 ">
         <div class="container mx-auto px-6">

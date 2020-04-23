@@ -30,6 +30,8 @@ class CreatePropertiesTable extends Migration
             $table->string('numri_tel');
             $table->string('foto')->nullable();
             $table->integer('aprovimi');
+            $table->float('lat')->nullable();
+            $table->float('lng')->nullable();
             $table->text('komenti');
             $table->bigInteger('qmimi');
             $table->timestamps();

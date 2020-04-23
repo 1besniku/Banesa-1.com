@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Banesat</title>
+    <title>@yield('titulli')|Banesat</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/7135c7649e.js" crossorigin="anonymous"></script>
@@ -32,14 +32,14 @@
     <div id='nav' class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
             @if(Auth::user() && Auth::user()->is_admin == 1)
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/Administration">Administrimi</a>
+                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/administrimi">Administrimi</a>
                 <a  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/aprovim">Aprovo Shpalljet</a>
                 <a  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/message">Mesazhat</a>
             @endif
             @if(Auth::check())
                 <a  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/pronat">Posto Shpallje</a>
             @endif
-            <a   class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/Shpalljet">Shpalljet</a>
+            <a   class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/shpalljet">Shpalljet</a>
 
             <a   class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/">Ballina</a>
                 <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/about">Rreth Nesh</a>
@@ -79,7 +79,7 @@
         </div>
     </div>
 </nav>
-<section  class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+<section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
     @yield('content')
 </section>
 

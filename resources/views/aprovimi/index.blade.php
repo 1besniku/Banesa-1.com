@@ -1,4 +1,7 @@
 @extends('layouts.app1')
+@section('titulli')
+    Aprovimi
+@endsection
 @section('content')
     @if (session('status'))
 

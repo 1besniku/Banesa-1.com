@@ -8,6 +8,6 @@ class testController extends Controller
 {
     //
     public function index(){
-        return view('layouts.app1');
+        return view('layouts.app2');
     }
 }

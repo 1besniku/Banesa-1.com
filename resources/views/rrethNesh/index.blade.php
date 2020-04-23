@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('titulli')
+    Rreth Nesh
+@endsection
 @section('content')
     <div class="bg-gray-100 mx-auto max-w-6xl bg-white py-20 px-12 lg:px-24 shadow-xl mt-6 mb-24"
          xmlns="http://www.w3.org/1999/html">

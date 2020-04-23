@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Banesat</title>
+    <title>@yield('titulli')|Banesat</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/7135c7649e.js" crossorigin="anonymous"></script>
@@ -34,8 +34,7 @@
     <div id='nav' class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
             @if(Auth::user() && Auth::user()->is_admin == 1)
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-                   href="/Administration">Administrimi</a>
+                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/administrimi">Administrimi</a>
                 <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/aprovim">Aprovo Shpalljet</a>
                 <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/message">Mesazhat</a>
             @endif
@@ -46,7 +45,7 @@
 
                 <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/">Ballina</a>
 
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/Shpalljet">Shpalljet</a>
+                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/shpalljet">Shpalljet</a>
                 <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/about">Rreth Nesh</a>
                 <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/contact">Kontakti</a>
         </div>
@@ -122,6 +121,7 @@
 <section>
     @yield('content')
 </section>
+<div id="map"></div>
 <footer class="footer bg-white relative pt-1 border-b-2 border-blue-700">
     <div class="container mx-auto px-6">
 
@@ -159,6 +159,38 @@
     </div>
 </footer>
 
+    <style>
+        #map{
+            height: 200px; /* The height is 400 pixels */
+            width: 100%;
+        }
+    </style>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script>
+
+
+
+
+
+        function initMap() {
+
+                var uluru = {lat: 42.667542, lng: 21.166191};
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 10,
+                    center: uluru,
+                    disableDefaultUI: true
+                });
+
+
+        }
+
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdUaSDlzKuCgMb6mRNXUw1Vzx7Q4kFR6Y&callback=initMap">
+    </script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

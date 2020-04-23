@@ -1,9 +1,12 @@
 @extends('layouts.app')
+@section('titulli')
+    Shpalljet
+@endsection
 @section('content')
     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
             <h3 class="text-md-center">Cfar po kerkoni</h3>
-            <form class="mt-3" method="post" action="/search/shpalljet">
+            <form class="mt-3" method="post" action="/search/shpalljet" autocomplete="off">
                 @csrf
                 <div class="-mx-3 md:flex mb-6">
                     <div class="md:w-full px-3">
@@ -13,6 +16,7 @@
                             <option value="Shtepi">Shtepi</option>
                             <option value="Banes">Banes</option>
                             <option value="Truall">Truall</option>
+                            <option value="Lokal">Lokal</option>
                         </select>
                     </div>
                 </div>

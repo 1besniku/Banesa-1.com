@@ -14,20 +14,20 @@ class AdminstrationController extends Controller
         $useradmin = User::where('is_admin', '=', '1')->get();
         $user = User::where('is_admin', '=', '0')->get();
 
-        return view('Admin.index', compact('useradmin', 'user'));
+        return view('admin.index', compact('useradmin', 'user'));
 
     }
 
     public function adduser()
     {
-        return view('Admin.addUser');
+        return view('admin.addUser');
     }
 
     public function edit($id)
     {
         $user = User::find($id);
 
-        return view('Admin.edit', compact('user'));
+        return view('admin.edit', compact('user'));
     }
 
     public function store(Request $request)
@@ -103,6 +103,6 @@ class AdminstrationController extends Controller
         $kerko = User::where('name' ,'LIKE', '%'.$request->search.'%')->get();
 
 
-        return view('Search.index',compact('kerko'));
+        return view('search.index',compact('kerko'));
     }
 }

@@ -18,20 +18,20 @@ class PronatController extends Controller
     public function index()
     {
 
-        return view('Pronat.index');
+        return view('pronat.index');
     }
 
 
     public function store(Request $request)
     {
-  // dd($request->all());
+            // dd($request->all());
         if ($request->filename == null) {
             return back();
         } else {
             $request->validate([
                 "objekti" => 'required',
-                "numriparceles" => 'required',
-                "zonakadastrale" => 'required',
+                "numriparceles" => 'nullable',
+                "zonakadastrale" => 'nullable',
                 "kati" => 'nullable',
                 "lloji" => "required",
                 "place" => "required",
@@ -42,7 +42,9 @@ class PronatController extends Controller
                 "adresa" => "required",
                 "price" => "required",
                 "komenti" => "required",
-                'phone' => 'required',
+                'phone' => 'required|min:9',
+                'lat' => 'nullable|float',
+                'lng' => 'nullable|float',
                 'filename.*' => 'required|file|mimes:jpeg,jpg,png,svg,gif'
 
             ]);
@@ -62,6 +64,8 @@ class PronatController extends Controller
                 'numri_dhomave' => $request->rooms,
                 'numri_tel' => $request->phone,
                 'qmimi' => $request->price,
+                'lat' =>$request->lat,
+                'lng' => $request->lng,
                 'komenti' => $request->komenti,
                 'ngrohja' => $request->ngrohja,
                 'kati' => $request->kati,
@@ -75,11 +79,28 @@ class PronatController extends Controller
                 foreach ($request->file('filename') as $image) {
 
                     $fileName = uniqid() . $image->getClientOriginalName();
-                    $test = $image->move(public_path('/images/'), $fileName);
-                    // dd($test);
+                    $fileName = uniqid() . $image->getClientOriginalName();
+
+                    $destination_path = public_path('/thumbnail');
+                    //dd($test);
+                    $risize_image = Image::make($image->getRealPath());
+                    $risize_image->resize(150, 150, function ($constration){
+                        $constration->aspectRatio();
+                    })->save($destination_path .'/' . $fileName);
+
+                    $destination_path = public_path('/images');
+                    $image->move($destination_path, $fileName);
                     $img = Image::make(public_path('/images/' . $fileName))->resize(300, 200);
-                    $data[] = $fileName;
                     $img->save();
+                    $data[] = $fileName;
+                    //dd($img);
+
+                    //$test = $image->move(public_path('/images/'), $fileName);
+                    //dd($test);
+                    //$img = Image::make(public_path('/images/' . $fileName))->resize(300, 200);
+                    //dd($img);
+
+                    //$img->save();
 
                 }
                 $arr = implode(',', $data);
@@ -87,7 +108,10 @@ class PronatController extends Controller
                 $pronat->update([
                     'foto' => $arr,
                 ]);
+
+
             }
+
         }
 
         return redirect('/pronat')->with('status', 'Shpallja u postua, ju lutem prisni per aporvim!');
