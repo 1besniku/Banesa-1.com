@@ -1,21 +1,30 @@
 @extends('layouts.app1')
 @section('titulli')
     Administrimi
-    @endsection
+@endsection
 @section('content')
 
     <h2 class="text-center mb-6 mt-5">Administrimi</h2>
     <form method="post" action="/user/search" autocomplete="off">
         @csrf
         <div class="block text-grey-darker text-sm font-bold mb-2">
-            <input type="text" placeholder="Search" id="search" name="search"
+            <input type="text" placeholder="Emri" id="name" name="name"
                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                   aria-label="Search">
+                   aria-label="name">
         </div>
+
+        <div class="block text-grey-darker text-sm font-bold mb-2">
+            <input type="text" placeholder="Mbiemri" id="surname" name="surname"
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                   aria-label="mbiemri">
+        </div>
+
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 mt-1 mr-6 px-4 rounded">Kerko
         </button>
     </form>
-    <a href="/addUser" class="bg-green-500 hover:bg-blue-700 mt-6 text-white font-bold py-2 mt-1 mr-6 px-4 rounded text-center">Shto Perdoruesit</a>
+    <a href="/addUser"
+       class="bg-green-500 hover:bg-blue-700 mt-6 text-white font-bold py-2 mt-1 mr-6 px-4 rounded text-center">Shto
+        Perdoruesit</a>
 
     <h1 class="text-center mt-5 mb-6">Adminstratort</h1>
 

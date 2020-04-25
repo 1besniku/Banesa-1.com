@@ -94,13 +94,14 @@ class AdminstrationController extends Controller
 
     public function search(Request $request)
     {
-       // dd($request);
+        //dd($request);
         $request->validate([
-            'search' => 'required|string',
+            'name' => 'required|string',
+            'surname' => 'required|string',
         ]);
 
 
-        $kerko = User::where('name' ,'LIKE', '%'.$request->search.'%')->get();
+        $kerko = User::where('name' ,'LIKE', '%'.$request->name.'%')->orWhere('name' ,'LIKE', '%'.$request->surname.'%')->get();
 
 
         return view('search.index',compact('kerko'));

@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('titulli')
-   Posto Shpallje
+    Posto Shpallje
 @endsection
 @section('content')
-
 
     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
@@ -47,19 +46,6 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="zonakadastrale">Zona
-                        kadastrale</label>
-                    <div class="md:w-full px-3">
-                        <input type="text"
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                               id="zonakadastrale" name="zonakadastrale" placeholder="Zona Kadastrale"
-                               value="{{old('zonakadastrale')}}">
-                        @error('zonakadastrale')
-                        {{$message}}
-                        @enderror
-                    </div>
-                </div>
-                <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="kati">kati</label>
                     <div class="md:w-full px-3">
                         <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
@@ -92,40 +78,53 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="ngrohja">Ngrohja</label>
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="ngrohja">Sistemi i instaluar i
+                        nxemjes</label>
                     <div class="md:w-full px-3">
-                        <input type="text"
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                               id="ngrohja" name="ngrohja" placeholder="ngrohja"
-                               value="{{old('ngrohja')}}">
+
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                                name="ngrohja"
+                                id="ngrohja">
+
+                            <option value="Nxemje qendrore me radiatora">Nxemje qendrore me radiatora</option>
+                            <option value="Nxemje qendrore nentokesore">Nxemje qendrore nentokesore</option>
+                            <option value="Nuk ka">Nuk ka</option>
+                        </select>
                         @error('ngrohja')
                         {{$message}}
                         @enderror
                     </div>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-grey-darker text-sm font-bold mb-2" for="numriparceles">Numri i
-                        Parceles</label>
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="burimi_nxemjes">Burimi i
+                        nxemjes</label>
                     <div class="md:w-full px-3">
-                        <input type="text"
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                               id="numriparceles" name="numriparceles" placeholder="Numri i Parceles"
-                               value="{{old('numriparceles')}}">
-                        @error('numriparceles')
+
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                                name="burimi_nxemjes"
+                                id="burimi_nxemjes">
+                            <option>zgjedh</option>
+                            <option value="Kallda me rryme">Kallda me rryme</option>
+                            <option value="Kallda me dru/qymyr">Kallda me dru/qymyr</option>
+                            <option value="Ngrohtorja e qytetit">Ngrohtorja e qytetit</option>
+                            <option value="Nuk ka">Nuk ka</option>
+                        </select>
+                        @error('ngrohja')
                         {{$message}}
                         @enderror
                     </div>
                 </div>
+
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="palce">Hapsira ne
                         m<sup>2</sup></label>
                     <div class="md:w-full px-3">
                         <input type="text"
                                class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                               id="place" name="place" placeholder="SIPERFAQJA"
+                               id="place" name="place" placeholder="SIPERFAQJA"  @error('place') style="background-color: red" @enderror
                                value="{{old('place')}}">
                         @error('place')
-                        {{$message}}
+                        Fusha nuk duhet te përmbaj karaktere!
                         @enderror
                     </div>
                 </div>
@@ -133,10 +132,23 @@
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="rooms">Numri i Dhomave</label>
                     <div class="md:w-full px-3">
-                        <input type="text"
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                               id="rooms" name="rooms" placeholder="Sheno Numrin e dhomave"
-                               value="{{old('rooms')}}">
+                        <select type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                                id="rooms" name="rooms" placeholder="Sheno Numrin e dhomave">
+                            <option value="0">Zgjedh</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6></option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+
+                        </select>
+
                         @error('rooms')
                         {{$message}}
                         @enderror
@@ -145,12 +157,21 @@
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="bathroom">Numri i Banjove</label>
                     <div class="md:w-full px-3">
-                        <input type="text"
-                               class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                               id="bathroom" name="bathroom"
-                               placeholder="Sheno Numrin e dhomave"
-                               value="{{old('bathroom')}}">
-                        @error('rooms')
+                        <select type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                                id="bathroom" name="bathroom">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        @error('bathroom')
                         {{$message}}
                         @enderror
                     </div>
@@ -160,7 +181,7 @@
                     <div class="md:w-full px-3">
                         <input type="text"
                                class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                               id="adresa" name="adresa" placeholder="Adresa"
+                               id="adresa" name="adresa" placeholder="Adresa" @error('adresa') style="background-color: red"@enderror
                                value="{{old('adresa')}}">
                         @error('adresa')
                         {{$message}}
@@ -201,16 +222,38 @@
                         </select>
                     </div>
                 </div>
+                <div class="mb-4">
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="Ballkonat">Numri i
+                        Ballkonave</label>
+                    <div class="md:w-full px-3">
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                                name="ballkonat" id="ballkonat">
+                            <option value="0">Zgjedh</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+
+                        </select>
+                    </div>
+                </div>
+
 
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="phone">Numri i Telefonit</label>
                     <div class="md:w-full px-3">
                         <input type="text"
                                class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                               id="phone" name="phone" placeholder="Numri i  Telefonit"
+                               id="phone" name="phone" placeholder="Numri i  Telefonit" @error('phone') style="background-color: red"@enderror
                                value="{{old('phone')}}">
                         @error('phone')
-                        {{$message}}
+                        Fush e Numrit të telefonit duhet të ket së paku 9 karaktere!
                         @enderror
                     </div>
                 </div>
@@ -220,10 +263,10 @@
                     <div class="md:w-full px-3">
                         <input type="text"
                                class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                               id="price" name="price" placeholder="price"
+                               id="price" name="price" placeholder="price" @error('price') style="background-color: red"@enderror
                                value="{{old('price')}}">
                         @error('price')
-                        {{$message}}
+                        Fusha nuk duhet te përmbaj karaktere!
                         @enderror
                     </div>
                 </div>
@@ -232,10 +275,10 @@
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="komenti">Me shum</label>
                     <div class="md:w-full px-3">
                 <textarea type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                          id="komenti" name="komenti" placeholder="Me shum te dhena"
+                          id="komenti" name="komenti" placeholder="Me shum te dhena" @error('komenti') style="background-color: red" @enderror
                           value="{{old('komenti')}}" cols="10" rows="5"></textarea>
                         @error('komenti')
-                        {{$message}}
+                        Ju lutem shkruani një tekst!
                         @enderror
                     </div>
                 </div>
@@ -267,12 +310,12 @@
             <div id="map"></div>
         </div>
     </div>
-<style>
-    #map{
-        height: 200px; /* The height is 400 pixels */
-        width: 100%;
-    }
-</style>
+    <style>
+        #map {
+            height: 200px; /* The height is 400 pixels */
+            width: 100%;
+        }
+    </style>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script>
@@ -301,10 +344,11 @@
                 });
                 var lat = latLng.lat().toFixed(6);
                 var lng = latLng.lng().toFixed(6);
-                getCords(lat,lng)
+                getCords(lat, lng)
 
             }
-            function getCords(lat,lng) {
+
+            function getCords(lat, lng) {
 
                 // Reference input html element with id=”lat”.
                 var coords_lat = document.getElementById('lat');

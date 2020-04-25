@@ -17,9 +17,9 @@ class CreatePropertiesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('llojishpalljes');
-            $table->string('numri_parceles')->nullable();
-            $table->string('zona_kadastrale')->nullable();
             $table->string('lloji');
+            $table->string('ballkonat');
+            $table->string('burimi_nxemjes');
             $table->string('siperfaqja');
             $table->string('komuna');
             $table->integer('numri_dhomave')->nullable();

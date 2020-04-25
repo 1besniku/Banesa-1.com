@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\deleteOldProperty;
 use App\Photo;
 use App\Property;
 use App\toka;
@@ -30,17 +31,17 @@ class PronatController extends Controller
         } else {
             $request->validate([
                 "objekti" => 'required',
-                "numriparceles" => 'nullable',
-                "zonakadastrale" => 'nullable',
-                "kati" => 'nullable',
+                "kati" => 'required|nullable',
                 "lloji" => "required",
-                "place" => "required",
+                "place" => "required|numeric|min:2",
                 "komuna" => "required",
-                "rooms" => "nullable|integer",
-                "ngrohja" => "nullable|string",
+                "burimi_nxemjes" => "required",
+                "ballkonat" => "required",
+                "rooms" => "required|integer",
+                "ngrohja" => "required",
                 "bathroom" => "nullable|integer|",
                 "adresa" => "required",
-                "price" => "required",
+                "price" => "required|numeric|min:2",
                 "komenti" => "required",
                 'phone' => 'required|min:9',
                 'lat' => 'nullable|float',
@@ -50,12 +51,12 @@ class PronatController extends Controller
             ]);
 
 
-            $pronat = Property::create([
+            $property = Property::create([
                 'aprovimi' => 0,
                 'user_id' => auth()->user()->id,
                 'llojishpalljes' => $request->objekti,
-                'numri_parceles' => $request->numriparceles,
-                'zona_kadastrale' => $request->zonakadastrale,
+                'burimi_nxemjes' => $request->burimi_nxemjes,
+                'ballkonat' => $request->ballkonat,
                 'lloji' => $request->lloji,
                 'siperfaqja' => $request->place,
                 'komuna' => $request->komuna,
@@ -105,7 +106,7 @@ class PronatController extends Controller
                 }
                 $arr = implode(',', $data);
                // dd($arr);
-                $pronat->update([
+                $property->update([
                     'foto' => $arr,
                 ]);
 
