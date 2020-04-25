@@ -51,7 +51,7 @@
                         <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                                 name="kati"
                                 id="kati">
-                            <option value="0">Zgjedh</option>
+                            
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -135,7 +135,7 @@
                         <select type="text"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                                 id="rooms" name="rooms" placeholder="Sheno Numrin e dhomave">
-                            <option value="0">Zgjedh</option>
+
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -193,7 +193,7 @@
                     <div class="md:w-full px-3">
                         <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                                 name="komuna" id="komuna">
-                            <option value="0">Zgjedh</option>
+
                             <option value="Prishtin">Prishtin</option>
                             <option value="Fushë Kosovë">Fushë Kosovë</option>
                             <option value="Pej">Pej</option>
