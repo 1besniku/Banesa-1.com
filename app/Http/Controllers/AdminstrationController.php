@@ -35,6 +35,7 @@ class AdminstrationController extends Controller
         // dd($request);
         $request->validate([
                 'name' => 'required|min:2',
+                'surname' => 'required|min:2',
                 'email' => 'required|email',
                 'password' => 'required|min:6|',
                 'confirmpassword' => 'required_with:password|same:password|min:6'
@@ -44,12 +45,13 @@ class AdminstrationController extends Controller
 
         $user = User::create([
             'name' => $request->name,
+            'surname' => $request->surname,
             'is_admin' => 1,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/Administration');
+        return redirect('/administration');
     }
 
     public function update(Request $request, User $user, $id)
@@ -57,6 +59,7 @@ class AdminstrationController extends Controller
         //dd($request);
         $data = $request->validate([
             'name' => 'sometimes|required|min:3',
+            'surname' => 'sometimes|required|min:3',
             'email' => 'required|email',
             'password' => 'nullable|min:6|',
             'confirmpassword' => 'nullable|required_with:password|same:password|min:6',
@@ -67,12 +70,14 @@ class AdminstrationController extends Controller
         if ($request->password == null) {
             $user->update([
                 'name' => $request->name,
+                'surname' => $request->surname,
                 'email' => $request->email,
                 'number_sms' => $request->number_sms,
             ]);
         } else {
             $user->update([
                 'name' => $request->name,
+                'surname' => $request->surname,
                 'email' => $request->email,
                 'number_sms' => $request->number_sms,
                 'password' => Hash::make($request->password),
@@ -80,7 +85,7 @@ class AdminstrationController extends Controller
         }
 
 
-        return redirect('/Administration');
+        return redirect('/administrimi');
     }
 
     public function destroy($id)

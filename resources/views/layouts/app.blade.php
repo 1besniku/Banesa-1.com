@@ -17,104 +17,112 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
 </head>
 <body>
 
-<nav class="flex items-center justify-between flex-wrap bg-red-500 p-6">
+<nav class="navbar navbar-expand-lg navbar-light bg-red-500 p-3">
+    {{-- logo or name of project --}}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div id="button" class="block lg:hidden"  >
-        <button
-            class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-            </svg>
-        </button>
-    </div>
-    <div id='nav' class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div class="text-sm lg:flex-grow">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
             @if(Auth::user() && Auth::user()->is_admin == 1)
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/administrimi">Administrimi</a>
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/aprovim">Aprovo Shpalljet</a>
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/message">Mesazhat</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/administrimi">Administrimi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/aprovim">Aprovo Shpalljet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/message">Mesazhat</a>
+                </li>
+
             @endif
             @if(Auth::check())
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/pronat">Posto
-                    Shpallje</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/pronat">Posto
+                        Shpallje</a>
+                </li>
             @endif
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/">Ballina</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/shpalljet">Shpalljet</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/about">Rreth
+                    Nesh</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white"
+                   href="/contact">Kontakti</a>
+            <li class="nav-item">
 
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/">Ballina</a>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            @if(Auth::check())
+                <li class="nav-item">
+                <a class="nav-link text-white" href="/accont">Llogaria</a>
+                </li>
+            @endif
+            @guest
+                    <li class="nav-item"><a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                @if (Route::has('register'))
+                    <li class="nav-item"><a class="nav-link text-white"  href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                @endif
+            @else
+                <li class="mr-6">
+                    <a id="navbarDropdown" class="text-white" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
 
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/shpalljet">Shpalljet</a>
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/about">Rreth Nesh</a>
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/contact">Kontakti</a>
-        </div>
-        <div>
-            <ul class="flex">
-                @if(Auth::check())
-                <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" href="/accont">Llogaria</a>
-               @endif
-                @guest
-                    <li class="mr-6"><a class="text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                    @if (Route::has('register'))
-                        <li class="mr-6"><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                    @endif
-                @else
-                    <li class="mr-6">
-                        <a id="navbarDropdown" class="text-white" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                    <div class="text-white" aria-labelledby="navbarDropdown">
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
                         </a>
 
-                        <div class="text-white" aria-labelledby="navbarDropdown">
-                            <a href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-            </ul>
             @endguest
-        </div>
+        </ul>
     </div>
 </nav>
 
-<main class="bg-pink-300 p-12 ">
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div class="text-sm lg:flex-grow sm:flex-col">
-
-            <a
-            class="block mt-4 lg:inline-block lg:mt-0 text-white bg-gray-500 hover:bg-gray-800  font-bold py-2 px-4 rounded mr-4">
-                Ballina
-            </a>
+<main class="bg-pink-400 p-24">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="#" class="btn btn-light">Ballina</a>
         </div>
-        <div class="text-sm lg:flex-grow sm:flex-col">
-            <a
-                class="block mt-4 lg:inline-block lg:mt-0 text-white bg-gray-500 hover:bg-gray-800  font-bold py-2 px-4 rounded mr-4">
-                Shpallje
-            </a>
+        <div class="col-md-3 col-sm-3" >
+            <a href="#" class="btn btn-light">Shpalljet</a>
         </div>
-        <div class="text-sm lg:flex-grow sm:flex-col">
-            <a
-                class="block mt-4 lg:inline-block lg:mt-0 text-white bg-gray-500 hover:bg-gray-800  font-bold py-2 px-4 rounded mr-4">
-                Kontakti
-            </a>
+        <div class="col-md-3 col-sm-3">
+            <a href="#" class="btn btn-light">Kontakti</a>
         </div>
-        <div class="text-sm lg:flex-grow sm:flex-col ">
-            <a
-                class="block mt-4 lg:inline-block lg:mt-0 text-white bg-gray-500 hover:bg-gray-800  font-bold py-2 px-4 rounded mr-4">
-                Informohu
-            </a>
+        <div class="col-md-3 col-sm-3">
+            <a href="#" class="btn btn-light">Rreth Nesh</a>
         </div>
-
-
 
     </div>
+
 
 
 </main>
@@ -122,75 +130,161 @@
     @yield('content')
 </section>
 <div id="map"></div>
-<footer class="footer bg-white relative pt-1 border-b-2 border-blue-700">
-    <div class="container mx-auto px-6">
+<!-- Footer -->
+<footer class="page-footer font-small indigo mt-6 bg-gray-200">
 
-        <div class="sm:flex sm:mt-8">
-            <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
-                <div class="flex flex-col">
-                    <span class="font-bold text-gray-700 uppercase mb-2">Footer header 1</span>
-                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
-                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
-                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">Footer header 2</span>
-                    <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">link 1</a></span>
-                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
-                    <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">link 1</a></span>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">Footer header 3</span>
-                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
-                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
-                    <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">link 1</a></span>
-                </div>
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Very long link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!">Very long link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!">Very long link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!">Very long link 4</a>
+                    </li>
+                </ul>
+
             </div>
-        </div>
-    </div>
-    <div class="container mx-auto px-6">
-        <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
-            <div class="sm:w-2/3 text-center py-6">
-                <p class="text-sm text-blue-700 font-bold mb-2">
-                   Product by: PAVBIT.
-                </p>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 4</a>
+                    </li>
+                </ul>
+
             </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 4</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 4</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
         </div>
+        <!-- Grid row -->
+
     </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+        Product: by PAVBIT
+    </div>
+    <!-- Copyright -->
+
 </footer>
+<!-- Footer -->
 
-    <style>
-        #map{
-            height: 200px; /* The height is 400 pixels */
-            width: 100%;
-        }
-    </style>
+<style>
+    #map {
+        height: 200px; /* The height is 400 pixels */
+        width: 100%;
+    }
+</style>
 
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script>
-
-
-
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<script>
 
 
-        function initMap() {
+    function initMap() {
 
-                var uluru = {lat: 42.667542, lng: 21.166191};
+        var uluru = {lat: 42.667542, lng: 21.166191};
 
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 10,
-                    center: uluru,
-                    disableDefaultUI: true
-                });
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: uluru,
+            disableDefaultUI: true
+        });
 
 
-        }
+    }
 
-    </script>
+</script>
 
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdUaSDlzKuCgMb6mRNXUw1Vzx7Q4kFR6Y&callback=initMap">
-    </script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdUaSDlzKuCgMb6mRNXUw1Vzx7Q4kFR6Y&callback=initMap">
+</script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -203,8 +297,8 @@
         crossorigin="anonymous"></script>
 
 <script>
-    $(document).ready(function(){
-        $("#button").click(function(){
+    $(document).ready(function () {
+        $("#button").click(function () {
             $("#nav").toggle();
         });
     });
