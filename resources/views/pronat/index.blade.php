@@ -4,16 +4,18 @@
 @endsection
 @section('content')
     <div class="container">
+
+
+
+
         <div class="row ">
             <div class="col-12">
                 @if (session('status'))
-
-                    <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
-                        <p class="font-bold">Informacion</p>
-                        <p> {{ session('status') }}</p>
+                    <div class="alert alert-success">
+                        {{ session('status') }}
                     </div>
-
                 @endif
+
                 <h5 text align="center" class="mt-6 mb-8">Mbush Formulari per te postuar Shpalljen</h5>
                 <form class="form-horizontal" method="post" action="pronat-store" enctype="multipart/form-data">
                     @csrf
@@ -22,28 +24,35 @@
                         <div class="col-md-8">
                             <select class="form-control"
                                     name="objekti" id="objekit">
-                                <option value="0">Zgjedh</option>
+                                <option disabled selected>Zgjedh</option>
                                 <option value="Shtepi">Shtepi</option>
                                 <option value="Banes">Banes</option>
                                 <option value="Tok">Truall</option>
                                 <option value="Lokal">Lokal</option>
                             </select>
+                            @error('objekti')
+                            Zgjidh njerin nga opsionet!
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label text-md-right" for="lloji">LLoji i Shpalljes</label>
                         <div class="col-md-8">
                             <select class="form-control" name="lloji" id="lloji">
-                                <option value="0">Zgjedh</option>
+                                <option disabled selected>Zgjedh</option>
                                 <option value="Shitet">Shitet</option>
                                 <option value="Me Qera">Me qera</option>
                             </select>
+                            @error('lloji')
+                            Zgjidh njerin nga opsionet!
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label text-md-right" for="kati">Kati</label>
                         <div class="col-md-8">
                             <select class="form-control" name="kati" id="kati">
+                                <option disabled selected>Zgjedh</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -66,6 +75,9 @@
                                 <option value="19">19</option>
                                 <option value="20">20</option>
                             </select>
+                            @error('kati')
+                            Zgjedh njerin nga opsionet!
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group row">
@@ -79,8 +91,8 @@
                                 <option value="Nxemje qendrore nentokesore">Nxemje qendrore nentokesore</option>
                                 <option value="Nuk ka">Nuk ka</option>
                             </select>
-                            @error('select')
-                            {{ $message }}
+                            @error('ngrohja')
+                            Zgjedh njerin nga opsionet!
                             @enderror
 
                         </div>
@@ -91,7 +103,7 @@
                         <div class="col-md-8">
                             <select type="text" class="form-control" name="burimi_nxemjes"
                                     id="burimi_nxemjes">
-                                <option>zgjedh</option>
+                                <option disabled selected>zgjedh</option>
                                 <option value="Kallda me rryme">Kallda me rryme</option>
                                 <option value="Kallda me dru/qymyr">Kallda me dru/qymyr</option>
                                 <option value="Ngrohtorja e qytetit">Ngrohtorja e qytetit</option>
@@ -113,7 +125,7 @@
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                                <option value="6">6></option>
+                                <option value="6">6</option>
                                 <option value="7">7</option>
                                 <option value="8">8</option>
                                 <option value="9">9</option>
@@ -129,6 +141,7 @@
                         <label class="col-md-2 col-form-label text-md-right" for="bathroom">Numri i Banjove</label>
                         <div class="col-md-8">
                             <select type="text" class="form-control" id="bathroom" name="bathroom">
+                                <option disabled selected>Zgjedh</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -140,6 +153,9 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
+                            @error('bathroom')
+                            Zgjedh njerin nga opsionet!
+                            @enderror
                         </div>
                     </div>
 
@@ -164,7 +180,7 @@
                                    placeholder="Adresa" @error('adresa') style="background-color: red" @enderror
                                    value="{{old('adresa')}}">
                             @error('adresa')
-                            {{$message}}
+                            Provo perseri ka ndonje gabim!
                             @enderror
                         </div>
                     </div>
@@ -172,7 +188,7 @@
                         <label class="col-md-2 col-form-label text-md-right" for="komuna">Komuna</label>
                         <div class="col-md-8">
                             <select class="form-control" name="komuna" id="komuna">
-
+                                <option disabled selected>Zgjedh</option>
                                 <option value="Prishtin">Prishtin</option>
                                 <option value="Fushë Kosovë">Fushë Kosovë</option>
                                 <option value="Pej">Pej</option>
@@ -199,6 +215,9 @@
                                 <option value="Klinë">Klinë</option>
                                 <option value="Junik">Junik</option>
                             </select>
+                            @error('komuna')
+                            Zgjedh njerin nga opsionet
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group row">
@@ -206,7 +225,7 @@
                         <div class="col-md-8">
                             <select class="form-control"
                                     name="ballkonat" id="ballkonat">
-                                <option value="0">Zgjedh</option>
+                                <option disabled selected>Zgjedh</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -217,7 +236,9 @@
                                 <option value="8">8</option>
                                 <option value="9">9</option>
                                 <option value="10">10</option>
-
+                                @error('ballkonat')
+                                Zgjedh njerin nga opsionet
+                                @enderror
                             </select>
                         </div>
                     </div>

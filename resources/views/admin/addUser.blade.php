@@ -37,7 +37,7 @@
                         <label class="col-md-2 col-form-label text-md-right" for="email">Email-i</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control"  id="email" name="email" placeholder="Email" >
-                            @error('emaili')
+                            @error('email')
                             {{ $message }}
                             @enderror
 

@@ -28,7 +28,7 @@ class CreatePropertiesTable extends Migration
             $table->string('kati')->nullable();
             $table->integer('numri_banjove')->nullable();
             $table->string('numri_tel');
-            $table->string('foto')->nullable();
+            $table->text('foto')->nullable();
             $table->integer('aprovimi');
             $table->float('lat')->nullable();
             $table->float('lng')->nullable();

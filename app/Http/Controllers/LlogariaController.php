@@ -12,9 +12,12 @@ class LlogariaController extends Controller
     {
 
         $accont = Property::where('user_id', '=', auth()->user()->id)->where('aprovimi', '=', 1)->get();
-
-            return view('llogaria.index',compact('accont'));
-
+        $collection = $accont->isEmpty();
+            if($collection == true){
+                return view('llogaria.index1');
+            }else {
+                return view('llogaria.index', compact('accont'));
+            }
 
     }
 

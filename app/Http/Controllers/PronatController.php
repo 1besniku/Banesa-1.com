@@ -85,13 +85,13 @@ class PronatController extends Controller
                     $destination_path = public_path('/thumbnail');
                     //dd($test);
                     $risize_image = Image::make($image->getRealPath());
-                    $risize_image->resize(150, 150, function ($constration){
+                    $risize_image->resize(300, 300, function ($constration){
                         $constration->aspectRatio();
                     })->save($destination_path .'/' . $fileName);
 
                     $destination_path = public_path('/images');
                     $image->move($destination_path, $fileName);
-                    $img = Image::make(public_path('/images/' . $fileName))->resize(300, 200);
+                    $img = Image::make(public_path('/images/' . $fileName))->resize(600, 600);
                     $img->save();
                     $data[] = $fileName;
                     //dd($img);

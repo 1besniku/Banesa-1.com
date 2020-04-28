@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Rules\ValidationEmailUser;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -34,11 +35,11 @@ class AdminstrationController extends Controller
     {
         // dd($request);
         $request->validate([
-                'name' => 'required|min:2',
-                'surname' => 'required|min:2',
-                'email' => 'required|email',
-                'password' => 'required|min:6|',
-                'confirmpassword' => 'required_with:password|same:password|min:6'
+                'name' => ['required' , ' min:2'],
+                'surname' => ['required','min:2'],
+                'email' => ['required','email', new ValidationEmailUser],
+                'password' => ['required','min:6'],
+                'confirmpassword' => ['required_with:password','same:password','min:6']
 
             ]
         );
@@ -51,7 +52,7 @@ class AdminstrationController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/administration');
+        return redirect('/administrimi');
     }
 
     public function update(Request $request, User $user, $id)
