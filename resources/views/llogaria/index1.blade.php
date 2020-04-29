@@ -8,7 +8,7 @@
             Informacion
         </div>
         <div class="card-body">
-            <h5 class="card-title">Ju nu keni shpallje te postuara</h5>
+            <h5 class="card-title">Ju nuk keni shpallje te postuara</h5>
             <p class="card-text">Për të postuar shpallje klikoni butonin</p>
             <a href="/pronat" class="btn btn-primary">Posto Shpallje</a>
         </div>

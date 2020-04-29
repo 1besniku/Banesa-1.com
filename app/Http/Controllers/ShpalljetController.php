@@ -13,8 +13,8 @@ class ShpalljetController extends Controller
     public function index()
     {
 
-        $pronat = Property::all();
-
+        $pronat = Property::paginate(9);
+        //dd($pronat);
         return view('shpalljet.index', compact('pronat'));
     }
 
@@ -38,7 +38,7 @@ class ShpalljetController extends Controller
         if ($request->komuna == '0' and $request->qmimi == null and $request->kati == '0' and $request->hapsira == null) {
             $search = Property::where('llojishpalljes', '=', $request->llojishpalljes)
                 ->where('lloji', '=', $request->lloji)
-                ->get();
+                ->paginate(9);
             //dd($search);
             return view('shpalljet.index', compact('search'));
 
@@ -47,7 +47,7 @@ class ShpalljetController extends Controller
             $search = Property::where('llojishpalljes', '=', $request->llojishpalljes)
                 ->where('lloji', '=', $request->lloji)
                 ->where('komuna', '=', $request->komuna)
-                ->get();
+                ->paginate(9);
             //dd($search);
             return view('shpalljet.index', compact('search'));
         } elseif ($request->komuna != '0' and $request->qmimi != null and $request->kati == '0' and $request->hapsira == null) {
@@ -56,7 +56,7 @@ class ShpalljetController extends Controller
                 ->where('lloji', '=', $request->lloji)
                 ->where('komuna', '=', $request->komuna)
                 ->where('qmimi', '>=', $request->qmimi)
-                ->get();
+                ->paginate(9);
             return view('shpalljet.index', compact('search'));
         } elseif ($request->komuna != '0' and $request->qmimi != null and $request->kati != '0' and $request->hapsira == null) {
             $search = Property::where('llojishpalljes', 'Like', $request->llojishpalljes)
@@ -64,7 +64,7 @@ class ShpalljetController extends Controller
                 ->where('komuna', '=', $request->komuna)
                 ->where('qmimi', '>=', $request->qmimi)
                 ->where('kati', '=', $request->kati)
-                ->get();
+                ->paginate(9);
 
             return view('shpalljet.index', compact('search'));
         } elseif ($request->komuna != '0' and $request->qmimi != null and $request->kati != '0' and $request->hapsira != null) {
@@ -74,19 +74,19 @@ class ShpalljetController extends Controller
                 ->where('qmimi', '<=', $request->qmimi)
                 ->where('kati', '=', $request->kati)
                 ->where('siperfaqja', '>=', $request->hapsira)
-                ->get();
+                ->paginate(9);
             return view('shpalljet.index', compact('search'));
         } elseif ($request->komuna == '0' and $request->qmimi != null and $request->kati == '0' and $request->hapsira == null) {
             $search = Property::where('llojishpalljes', 'Like', $request->llojishpalljes)
                 ->where('lloji', '=', $request->lloji)
                 ->where('qmimi', '<=', $request->qmimi)
-                ->get();
+                ->paginate(9);
             return view('shpalljet.index', compact('search'));
         } elseif ($request->komuna == '0' and $request->qmimi == null and $request->kati != '0' and $request->hapsira == null) {
             $search = Property::where('llojishpalljes', 'Like', $request->llojishpalljes)
                 ->where('lloji', '=', $request->lloji)
                 ->where('kati', '=', $request->kati)
-                ->get();
+                ->paginate(9);
 
             return view('shpalljet.index', compact('search'));
 
@@ -95,7 +95,7 @@ class ShpalljetController extends Controller
             $search = Property::where('llojishpalljes', 'Like', $request->llojishpalljes)
                 ->where('lloji', '=', $request->lloji)
                 ->where('siperfaqja', '<=', $request->hapsira)
-                ->get();
+                ->paginate(9);
 
             return view('shpalljet.index', compact('search'));
 

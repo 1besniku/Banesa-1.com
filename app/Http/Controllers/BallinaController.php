@@ -10,6 +10,6 @@ class BallinaController extends Controller
     //
     public function index(){
         $arr = \App\Property::all();
-        return view('layouts.app',compact('arr'));
+        return view('ballina.index',compact('arr'));
     }
 }

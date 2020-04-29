@@ -16,6 +16,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -28,8 +29,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-red-500 p-3">
     {{-- logo or name of project --}}
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" id="button1"
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -40,7 +41,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/administrimi">Administrimi</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item text-white">
                     <a class="nav-link text-white" href="/aprovim">Aprovo Shpalljet</a>
                 </li>
                 <li class="nav-item">
@@ -73,11 +74,11 @@
         <ul class="navbar-nav ml-auto">
             @if(Auth::check())
                 <li class="nav-item">
-                <a class="nav-link text-white" href="/accont">Llogaria</a>
+                    <a class="nav-link text-white" href="/accont">Llogaria</a>
                 </li>
             @endif
             @guest
-                    <li class="nav-item"><a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                 @if (Route::has('register'))
                     <li class="nav-item"><a class="nav-link text-white"  href="{{ route('register') }}">{{ __('Register') }}</a></li>
                 @endif
@@ -108,25 +109,22 @@
 
 <main class="bg-pink-400 p-24">
     <div class="row">
-        <div class="col-md-3">
-            <a href="#" class="btn btn-light">Ballina</a>
+        <div class="col-md-3 col-sm-12 mt-6">
+            <a href="#" class="btn btn-light w-full">Ballina</a>
         </div>
-        <div class="col-md-3 col-sm-3" >
-            <a href="#" class="btn btn-light">Shpalljet</a>
+        <div class="col-md-3 col-sm-12 mt-6">
+            <a href="#" class="btn btn-light w-full">Shpalljet</a>
         </div>
-        <div class="col-md-3 col-sm-3">
-            <a href="#" class="btn btn-light">Kontakti</a>
+        <div class="col-md-3 col-sm-12 mt-6">
+            <a href="#" class="btn btn-light w-full">Kontakti</a>
         </div>
-        <div class="col-md-3 col-sm-3">
-            <a href="#" class="btn btn-light">Rreth Nesh</a>
+        <div class="col-md-3 col-sm-12 mt-6">
+            <a href="#" class="btn btn-light  w-full" >Rreth Nesh</a>
         </div>
 
     </div>
-
-
-
 </main>
-<section>
+<section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
     @yield('content')
 </section>
 <div id="map"></div>
@@ -282,6 +280,7 @@
 
 </script>
 
+
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdUaSDlzKuCgMb6mRNXUw1Vzx7Q4kFR6Y&callback=initMap">
 </script>
@@ -295,13 +294,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
 <script>
-    $(document).ready(function () {
-        $("#button").click(function () {
-            $("#nav").toggle();
+    $(document).ready(function(){
+        $("#button1").click(function(){
+            $("#navbarSupportedContent").toggle();
         });
     });
 </script>
+
 </body>
 </html>

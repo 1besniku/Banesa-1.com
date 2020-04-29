@@ -11,10 +11,16 @@
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Emri</label>
                 <input type="text" class="form-control" placeholder="Emri" id="name" name="name">
+                @error('name')
+                Ju lutem shkruani Emrin!
+                @enderror
             </div>
             <div class="form-group col-md-6">
                 <label for="surname">Mbiemri</label>
                 <input type="text" class="form-control" id="surname" name="surname">
+                @error('surname')
+                Ju lutem shkruani Mbiemrin!
+                @enderror
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Kerko</button>
