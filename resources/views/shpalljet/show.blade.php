@@ -23,13 +23,14 @@
         </ul>
 
 
-       {{-- @foreach($explode as $image)
+       {{--@foreach($explode as $image)
 
             <img src="{{asset('/images/'. $image)}}" alt="foto" class="img-thumbnail">
 
             <img src="{{asset('/thumbnail/'. $image)}}" alt="foto" class="img-thumbnail">
 
-        @endforeach--}}
+        @endforeach
+        --}}
 
 
    <!--Carousel Wrapper-->
@@ -72,6 +73,8 @@
    max-width: 100%; } }
 
    .carousel-multi-item-2 .card img {
-   border-radius: 2px; }
+   border-radius: 2px;
    </style>
+
+
 @endsection

@@ -81,7 +81,7 @@
             <td>    <form action="/user/delete/{{$useradmin['id']}}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 mr-6 px-4 rounded">Fshi
+                    <button class="btn btn-danger">Fshi
                     </button>
                 </form>
             </td>

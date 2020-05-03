@@ -1,0 +1,114 @@
+#body {
+    background-color: whitesmoke;
+}
+
+.nav {
+    margin-top: 10px;
+}
+
+.nav-link {
+    color: black;
+
+}
+
+.nav-link:hover {
+    background-color: orange;
+    color: white;
+    padding: 10px;
+}
+
+.img {
+    background-image: url("images_theem/sallone.jpg");
+    height: 300px;
+    margin-top: 20px;
+}
+
+.searchbar {
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.search_input {
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color: transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover>.search_input {
+    padding: 0 10px;
+    width: 450px;
+    caret-color: red;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover>.search_icon {
+    background: white;
+    color: #e74c3c;
+}
+
+.search_icon {
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+}
+
+
+.section-row{
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+.div-small{
+
+    margin-left: 20px;
+}
+
+
+.select-section{
+    background-color: orange;
+
+}
+
+.option-on-div:hover {
+    background: orange;
+}
+
+.logo_section_drop {
+    margin-top: 30px;
+}
+
+.text-section-drop {
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+.logo-footer {
+    margin-top: 10px;
+}
+
+.span-footer {
+    margin-top: 35px;
+}
+
+#footer {
+    margin-top: 20px;
+}
+
+.p-footer {
+    margin-left: 20px;
+}
