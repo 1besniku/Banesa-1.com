@@ -5,7 +5,7 @@
 @section('content')
     @if (session('status'))
 
-        <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+        <div class="alert alert-success">
             <p class="font-bold">Informacion</p>
             <p> {{ session('status') }}</p>
         </div>
@@ -28,7 +28,7 @@
                     <form action="llogaria/delete/{{$name->id}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 mr-6 px-4 rounded">Fshi
+                        <button class="btn btn-danger">Fshi
                             Shpalljen
                         </button>
                     </form>

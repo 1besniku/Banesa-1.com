@@ -27,33 +27,42 @@
             </div>
 
             <ul class="nav d-flex  flex-sm-row flex-column ">
+                @if(Auth::user() && Auth::user()->is_admin == 1)
+                    <li class="nav-item">
+                        <a class="nav-link" href="/administrimi">Administrimi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/aprovim">Aprovo Shpalljet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/message">Mesazhat</a>
+                    </li>
+
+                @endif
+                @if(Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pronat">Posto
+                            Shpallje</a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="/">Ballina</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/shtepia">Shtepia</a>
+                    <a class="nav-link" href="/shpalljet">Shpalljet</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/banesa">Banesa</a>
+                    <a class="nav-link" href="/about">Rreth
+                        Nesh</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">Rreth Nesh</a>
-                </li>
+                    <a class="nav-link"
+                       href="/contact">Kontakti</a>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">Kontakti</a>
-                </li>
             </ul>
-          {{--  <ul class="nav d-flex flex-sm-row flex-column">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                @endif
-            </ul>--}}
+
             <ul class="nav d-flex flex-sm-row flex-column">
+
             @guest
                 <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                 @if (Route::has('register'))
