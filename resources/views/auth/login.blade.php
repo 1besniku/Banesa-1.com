@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.app2')
 @section('titulli')
     Log-in
 @endsection

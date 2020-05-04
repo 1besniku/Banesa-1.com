@@ -31,10 +31,10 @@
                     <a class="nav-link" href="/">Ballina</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Shtepia</a>
+                    <a class="nav-link" href="/shtepia">Shtepia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Banesa</a>
+                    <a class="nav-link " href="/banesa">Banesa</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/about">Rreth Nesh</a>
@@ -43,6 +43,7 @@
                     <a class="nav-link" href="/contact">Kontakti</a>
                 </li>
             </ul>
+
             <ul class="nav d-flex flex-sm-row flex-column">
                 @guest
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
@@ -76,7 +77,7 @@
 
 
         </div>
-    </nav>
+</nav>
 </div>
 <main class="row">
     <div class="col-12">
@@ -91,7 +92,27 @@
     </div>
 </main>
 <section id="section1">
-   @yield('content')
+    <div class="row d-flex ">
+        <div class="col-2"></div>
+
+        <div class="col-6">
+            @yield('content')
+        </div>
+
+        <div class="col-md-3">
+
+            @yield('search')
+            <img src="images_theem/sallone.jpg" class="mt-2" width="300px" height="600">
+        </div>
+        <div class="col-1"></div>
+
+
+
+
+
+
+    </div>
+
 </section>
 
 <footer id="footer">

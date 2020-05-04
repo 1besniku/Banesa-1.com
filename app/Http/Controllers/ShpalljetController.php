@@ -101,5 +101,16 @@ class ShpalljetController extends Controller
 
         }
     }
+    public function shtepia(){
+        $shtepia = Property::where('llojishpalljes','=','Shtepi')->where('aprovimi','=','1')->paginate(10);
+            //dd($shtepia);
+        return view('shpalljet.shtepia',compact('shtepia'));
+
+    }
+    public function banesa(){
+        $banesa = Property::where('llojishpalljes','=','Banes')->where('aprovimi','=','1')->paginate(10);
+       // dd($banesa);
+        return view('shpalljet.banesa',compact('banesa'));
+    }
 
 }

@@ -27,4 +27,5 @@ class DetajeController extends Controller
 
         return view('rrethNesh.index');
     }
+
 }

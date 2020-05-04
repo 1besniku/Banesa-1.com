@@ -28,61 +28,23 @@
 
             <ul class="nav d-flex  flex-sm-row flex-column ">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Ballina</a>
+                    <a class="nav-link" href="#">Ballina</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/shtepia">Shtepia</a>
+                    <a class="nav-link" href="#">Rreth Nesh</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/banesa">Banesa</a>
+                    <a class="nav-link" href="#">Shtepia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">Rreth Nesh</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">Kontakti</a>
+                    <a class="nav-link " href="#">Banesa</a>
                 </li>
             </ul>
-          {{--  <ul class="nav d-flex flex-sm-row flex-column">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                @endif
-            </ul>--}}
             <ul class="nav d-flex flex-sm-row flex-column">
-            @guest
-                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                @if (Route::has('register'))
-                    <li class="nav-item"><a class="nav-link"  href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                @endif
-            @else
-                <li class="mr-6">
-                   <a id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-
-                    <div  aria-labelledby="navbarDropdown">
-                     <a  href="{{ route('logout') }}" id="routelogin"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                              style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-
-                    @endguest
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shto</a>
+                </li>
+            </ul>
 
 
         </div>
@@ -104,8 +66,67 @@
     <div class="row d-flex ">
         <div class="col-2"></div>
 
-        <div class="col-6">
-            @yield('content')
+        <div class="col-6 d-flex flex-column row  flex-sm-column row">
+            <div class="row d-flex justify-content-around">
+                <div class="col-md-4 col-sm-12">
+                    <select class="form-control select-section">
+                        <option>Vendi</option>
+                    </select>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <select class="form-control select-section">
+                        <option>Shtepia</option>
+                    </select>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <select class="form-control cselect-section">
+                        <option>Banes</option>
+                    </select>
+                </div>
+            </div>
+
+            <div >
+                <div class="d-flex section-row flex-sm-row flex-column">
+                    <img src="images_theem/sallone.jpg" width="200" height="100" alt="logo_section">
+                    <div class="div-small">
+                        <h5>Lorem impus</h5>
+                        <p>new new new new new new new new</p>
+                    </div>
+
+                </div>
+                <hr style="width:100%;text-align:left;margin-left:0">
+
+                <div class="d-flex section-row flex-sm-row flex-column">
+                    <img src="images_theem/sallone.jpg" width="200" height="100" alt="logo_section">
+                    <div class="div-small">
+                        <h5>Lorem impus</h5>
+                        <p>new new new new new new new new</p>
+                    </div>
+
+                </div>
+
+                <hr style="width:100%;text-align:left;margin-left:0">
+                <div class="d-flex section-row flex-sm-row flex-column">
+                    <img src="images_theem/sallone.jpg" width="200" height="100" alt="logo_section">
+                    <div class="div-small">
+                        <h5>Lorem impus</h5>
+                        <p>new new new new new new new new</p>
+                    </div>
+
+                </div>
+
+                <hr style="width:100%;text-align:left;margin-left:0">
+                <div class="d-flex section-row flex-sm-row flex-column">
+                    <img src="images_theem/sallone.jpg" width="200" height="100" alt="logo_section">
+                    <div class="div-small">
+                        <h5>Lorem impus</h5>
+                        <p>new new new new new new new new</p>
+                    </div>
+
+                </div>
+
+                <hr style="width:100%;text-align:left;margin-left:0">
+            </div>
         </div>
 
         <div class="col-md-2 col-sm-12">
@@ -148,4 +169,3 @@
 
 </body>
 </html>
-
