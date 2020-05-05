@@ -27,7 +27,7 @@
 
 
 <body id="body">
-
+<div class="container">
 <nav>
     <div class="d-flex justify-content-around flex-sm-row flex-column  ">
         <div>
@@ -62,7 +62,10 @@
                 <a class="nav-link" href="/">Ballina</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/shpalljet">Shpalljet</a>
+                <a class="nav-link" href="/shtepia">Shtepit</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/banesa">Banesa</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about">Rreth
@@ -75,13 +78,16 @@
         </ul>
 
         <ul class="nav d-flex flex-sm-row flex-column">
-            <li class="nav-item" href="accont">
-                <a href="accont" class="nav-link">Llgaria</a>
-            </li>
+            @if(Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link" href="accont">Llogaria</a>
+                </li>
+            @endif
             @guest
-                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Kyqu</a></li>
                 @if (Route::has('register'))
-                    <li class="nav-item"><a class="nav-link"  href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Regjistrohu</a>
+                    </li>
                 @endif
             @else
                 <li class="mr-6">
@@ -91,9 +97,9 @@
                     </a>
 
 
-                    <div  aria-labelledby="navbarDropdown">
-                        <a  href="{{ route('logout') }}" id="routelogin"
-                            onclick="event.preventDefault();
+                    <div aria-labelledby="navbarDropdown">
+                        <a href="{{ route('logout') }}" id="routelogin"
+                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
@@ -111,10 +117,11 @@
 
     </div>
 </nav>
+</div>
 
 <main class="row">
     <div class="col-12">
-        <div class="img">
+        <div class="img" style="background-image: url('//images_theem/sallone.jpg');">
             <div class="d-flex justify-content-center h-100">
                 <div class="searchbar">
                     <input class="search_input" type="text" name="" placeholder="Search...">
@@ -170,209 +177,209 @@
         crossorigin="anonymous"></script>
 {{--<nav class="navbar navbar-expand-lg navbar-light bg-red-500 p-3">
     {{-- logo or name of project --}}
-  {{--  <button class="navbar-toggler" type="button" id="button1" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+{{--  <button class="navbar-toggler" type="button" id="button1" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
 
-            @if(Auth::user() && Auth::user()->is_admin == 1)
-                <li class="nav-item">
-                    <a class="nav-link" href="/administrimi">Administrimi</a>
-                </li>
-                <li class="nav-item text-white">
-                    <a class="nav-link text-white" href="/aprovim">Aprovo Shpalljet</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="/message">Mesazhat</a>
-                </li>
+          @if(Auth::user() && Auth::user()->is_admin == 1)
+              <li class="nav-item">
+                  <a class="nav-link" href="/administrimi">Administrimi</a>
+              </li>
+              <li class="nav-item text-white">
+                  <a class="nav-link text-white" href="/aprovim">Aprovo Shpalljet</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-white" href="/message">Mesazhat</a>
+              </li>
 
-            @endif
-            @if(Auth::check())
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="/pronat">Posto
-                        Shpallje</a>
-                </li>
-            @endif
-            <li class="nav-item">
-                <a class="nav-link text-white" href="/">Ballina</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="/shpalljet">Shpalljet</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="/about">Rreth
-                    Nesh</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white"
-                   href="/contact">Kontakti</a>
-            <li class="nav-item">
+          @endif
+          @if(Auth::check())
+              <li class="nav-item">
+                  <a class="nav-link text-white" href="/pronat">Posto
+                      Shpallje</a>
+              </li>
+          @endif
+          <li class="nav-item">
+              <a class="nav-link text-white" href="/">Ballina</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-white" href="/shpalljet">Shpalljet</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-white" href="/about">Rreth
+                  Nesh</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-white"
+                 href="/contact">Kontakti</a>
+          <li class="nav-item">
 
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            @if(Auth::check())
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="/accont">Llogaria</a>
-                </li>
-            @endif
-            @guest
-                <li class="nav-item"><a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                @if (Route::has('register'))
-                    <li class="nav-item"><a class="nav-link text-white"  href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                @endif
-            @else
-                <li class="mr-6">
-                    <a id="navbarDropdown" class="text-white" href="#" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+          @if(Auth::check())
+              <li class="nav-item">
+                  <a class="nav-link text-white" href="/accont">Llogaria</a>
+              </li>
+          @endif
+          @guest
+              <li class="nav-item"><a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+              @if (Route::has('register'))
+                  <li class="nav-item"><a class="nav-link text-white"  href="{{ route('register') }}">{{ __('Register') }}</a></li>
+              @endif
+          @else
+              <li class="mr-6">
+                  <a id="navbarDropdown" class="text-white" href="#" role="button"
+                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      {{ Auth::user()->name }} <span class="caret"></span>
+                  </a>
 
-                    <div class="text-white" aria-labelledby="navbarDropdown">
-                        <a href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                  <div class="text-white" aria-labelledby="navbarDropdown">
+                      <a href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                              style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                            style="display: none;">
+                          @csrf
+                      </form>
+                  </div>
 
-            @endguest
-        </ul>
-    </div>
+          @endguest
+      </ul>
+  </div>
 </nav>
 
 <section class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
-    @yield('content')
+  @yield('content')
 </section>
 
 
 <footer class="page-footer font-small indigo mt-6 bg-gray-200">
 
-    <!-- Footer Links -->
-    <div class="container text-center text-md-left">
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
 
-        <!-- Grid row -->
-        <div class="row">
+      <!-- Grid row -->
+      <div class="row">
 
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
 
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+              <!-- Links -->
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
 
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Very long link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Very long link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Very long link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Very long link 4</a>
-                    </li>
-                </ul>
+              <ul class="list-unstyled">
+                  <li>
+                      <a href="#!">Very long link 1</a>
+                  </li>
+                  <li>
+                      <a href="#!">Very long link 2</a>
+                  </li>
+                  <li>
+                      <a href="#!">Very long link 3</a>
+                  </li>
+                  <li>
+                      <a href="#!">Very long link 4</a>
+                  </li>
+              </ul>
 
-            </div>
-            <!-- Grid column -->
+          </div>
+          <!-- Grid column -->
 
-            <hr class="clearfix w-100 d-md-none">
+          <hr class="clearfix w-100 d-md-none">
 
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
 
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+              <!-- Links -->
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
 
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
-                </ul>
+              <ul class="list-unstyled">
+                  <li>
+                      <a href="#!">Link 1</a>
+                  </li>
+                  <li>
+                      <a href="#!">Link 2</a>
+                  </li>
+                  <li>
+                      <a href="#!">Link 3</a>
+                  </li>
+                  <li>
+                      <a href="#!">Link 4</a>
+                  </li>
+              </ul>
 
-            </div>
-            <!-- Grid column -->
+          </div>
+          <!-- Grid column -->
 
-            <hr class="clearfix w-100 d-md-none">
+          <hr class="clearfix w-100 d-md-none">
 
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
 
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+              <!-- Links -->
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
 
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
-                </ul>
+              <ul class="list-unstyled">
+                  <li>
+                      <a href="#!">Link 1</a>
+                  </li>
+                  <li>
+                      <a href="#!">Link 2</a>
+                  </li>
+                  <li>
+                      <a href="#!">Link 3</a>
+                  </li>
+                  <li>
+                      <a href="#!">Link 4</a>
+                  </li>
+              </ul>
 
-            </div>
-            <!-- Grid column -->
+          </div>
+          <!-- Grid column -->
 
-            <hr class="clearfix w-100 d-md-none">
+          <hr class="clearfix w-100 d-md-none">
 
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
+          <!-- Grid column -->
+          <div class="col-md-3 mx-auto">
 
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+              <!-- Links -->
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
 
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
-                </ul>
+              <ul class="list-unstyled">
+                  <li>
+                      <a href="#!">Link 1</a>
+                  </li>
+                  <li>
+                      <a href="#!">Link 2</a>
+                  </li>
+                  <li>
+                      <a href="#!">Link 3</a>
+                  </li>
+                  <li>
+                      <a href="#!">Link 4</a>
+                  </li>
+              </ul>
 
-            </div>
-            <!-- Grid column -->
+          </div>
+          <!-- Grid column -->
 
-        </div>
-        <!-- Grid row -->
+      </div>
+      <!-- Grid row -->
 
-    </div>
-    <!-- Footer Links -->
+  </div>
+  <!-- Footer Links -->
 
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">
-        Product: by PAVBIT
-    </div>
-    <!-- Copyright -->
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">
+      Product: by PAVBIT
+  </div>
+  <!-- Copyright -->
 
 </footer>--}}
 <!-- Footer -->
@@ -388,8 +395,8 @@
         crossorigin="anonymous"></script>
 
 <script>
-    $(document).ready(function(){
-        $("#button1").click(function(){
+    $(document).ready(function () {
+        $("#button1").click(function () {
             $("#navbarSupportedContent").toggle();
         });
     });

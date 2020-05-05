@@ -1,4 +1,4 @@
-@extends('layouts.app3')
+@extends('layouts.app')
 @section('content')
     @foreach($shtepia as $arr)
     <div class="d-flex flex-column row  flex-sm-column row">

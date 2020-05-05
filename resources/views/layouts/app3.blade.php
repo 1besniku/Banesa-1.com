@@ -49,7 +49,10 @@
                     <a class="nav-link" href="/">Ballina</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/shpalljet">Shpalljet</a>
+                    <a class="nav-link" href="/shtepia">Shtepit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/banesa">Banesa</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/about">Rreth
@@ -62,10 +65,16 @@
             </ul>
 
             <ul class="nav d-flex flex-sm-row flex-column">
+                @if(Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="accont">Llogaria</a>
+                    </li>
+                @endif
                 @guest
-                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Kyqu</a></li>
                     @if (Route::has('register'))
-                        <li class="nav-item"><a class="nav-link"  href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Regjistrohu</a>
+                        </li>
                     @endif
                 @else
                     <li class="mr-6">
@@ -75,9 +84,9 @@
                         </a>
 
 
-                        <div  aria-labelledby="navbarDropdown">
-                            <a  href="{{ route('logout') }}" id="routelogin"
-                                onclick="event.preventDefault();
+                        <div aria-labelledby="navbarDropdown">
+                            <a href="{{ route('logout') }}" id="routelogin"
+                               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
@@ -94,42 +103,18 @@
 
 
         </div>
-</nav>
+    </nav>
 </div>
-<main class="row">
-    <div class="col-12">
-        <div class="img">
-            <div class="d-flex justify-content-center h-100">
-                <div class="searchbar">
-                    <input class="search_input" type="text" name="" placeholder="Search...">
-                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-<section id="section1">
-    <div class="row d-flex ">
-        <div class="col-2"></div>
 
-        <div class="col-6">
+<section id="section1">
+    <div class="container">
+    <div class="row">
+        <div class="col-12">
             @yield('content')
         </div>
 
-        <div class="col-md-3">
-
-            @yield('search')
-            <img src="images_theem/sallone.jpg" class="mt-2" width="300px" height="600">
-        </div>
-        <div class="col-1"></div>
-
-
-
-
-
-
     </div>
-
+    </div>
 </section>
 
 <footer id="footer">

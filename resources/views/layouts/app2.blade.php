@@ -49,7 +49,10 @@
                     <a class="nav-link" href="/">Ballina</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/shpalljet">Shpalljet</a>
+                    <a class="nav-link" href="/shtepia">Shtepit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/banesa">Banesa</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/about">Rreth
@@ -61,10 +64,16 @@
                 <li class="nav-item">
             </ul>
             <ul class="nav d-flex flex-sm-row flex-column">
+                @if(Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="accont">Llogaria</a>
+                    </li>
+                @endif
                 @guest
-                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Kyqu</a></li>
                     @if (Route::has('register'))
-                        <li class="nav-item"><a class="nav-link"  href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Regjistrohu</a>
+                        </li>
                     @endif
                 @else
                     <li class="mr-6">
@@ -74,9 +83,9 @@
                         </a>
 
 
-                        <div  aria-labelledby="navbarDropdown">
-                            <a  href="{{ route('logout') }}" id="routelogin"
-                                onclick="event.preventDefault();
+                        <div aria-labelledby="navbarDropdown">
+                            <a href="{{ route('logout') }}" id="routelogin"
+                               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
@@ -97,7 +106,7 @@
 </div>
 <main class="row">
     <div class="col-12">
-        <div class="img">
+        <div class="img" style="background-image: url('//images_theem/sallone.jpg');">
             <div class="d-flex justify-content-center h-100">
                 <div class="searchbar">
                     <input class="search_input" type="text" name="" placeholder="Search...">
@@ -108,7 +117,7 @@
     </div>
 </main>
 <section id="section1">
-   @yield('content')
+    @yield('content')
 </section>
 
 <footer id="footer">

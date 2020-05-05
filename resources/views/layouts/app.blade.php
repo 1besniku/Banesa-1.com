@@ -49,7 +49,10 @@
                     <a class="nav-link" href="/">Ballina</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/shpalljet">Shpalljet</a>
+                    <a class="nav-link" href="/shtepia">Shtepit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/banesa">Banesa</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/about">Rreth
@@ -62,36 +65,41 @@
             </ul>
 
             <ul class="nav d-flex flex-sm-row flex-column">
-
-            @guest
-                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                @if (Route::has('register'))
-                    <li class="nav-item"><a class="nav-link"  href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                @endif
-            @else
-                <li class="mr-6">
-                   <a id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-
-                    <div  aria-labelledby="navbarDropdown">
-                     <a  href="{{ route('logout') }}" id="routelogin"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                @if(Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="accont">Llogaria</a>
+                    </li>
+                    @endif
+                @guest
+                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Kyqu</a></li>
+                    @if (Route::has('register'))
+                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Regjistrohu</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="mr-6">
+                        <a id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                              style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
+                        <div aria-labelledby="navbarDropdown">
+                            <a href="{{ route('logout') }}" id="routelogin"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-                    @endguest
-                    </ul>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+
+                @endguest
+            </ul>
 
 
         </div>
@@ -99,7 +107,7 @@
 </div>
 <main class="row">
     <div class="col-12">
-        <div class="img">
+        <div class="img" style="background-image: url('//images_theem/sallone.jpg');">
             <div class="d-flex justify-content-center h-100">
                 <div class="searchbar">
                     <input class="search_input" type="text" name="" placeholder="Search...">

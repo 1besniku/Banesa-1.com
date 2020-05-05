@@ -1,14 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.app3')
 @section('titulli')
     Posto Shpallje
 @endsection
 @section('content')
     <div class="container">
 
-
-
-
-        <div class="row ">
+        <div class="row mt-5">
             <div class="col-12">
                 @if (session('status'))
                     <div class="alert alert-success">
