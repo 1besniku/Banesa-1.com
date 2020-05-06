@@ -7,13 +7,13 @@
 }
 
 .nav-link {
-    color: black;
+  color: black;
+}
+#nav{
+   color: black;
+}
 
-}
-#link{
-    color: white;
-}
-.nav-link:hover {
+#nav:hover {
     background-color: orange;
     color: white;
     padding: 10px;

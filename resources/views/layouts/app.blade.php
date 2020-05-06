@@ -38,49 +38,49 @@
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             @if(Auth::user() && Auth::user()->is_admin == 1)
                 <li class="nav-item">
-                    <a class="nav-link" href="/administrimi">Administrimi</a>
+                    <a class="nav-link" id="nav" href="/administrimi">Administrimi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/aprovim">Aprovo Shpalljet</a>
+                    <a class="nav-link" id="nav" href="/aprovim">Aprovo Shpalljet</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/message">Mesazhat</a>
+                    <a class="nav-link" id="nav" href="/message">Mesazhat</a>
                 </li>
 
             @endif
             @if(Auth::check())
                 <li class="nav-item">
-                    <a class="nav-link" href="/pronat">Posto
+                    <a class="nav-link" id="nav" href="/pronat">Posto
                         Shpallje</a>
                 </li>
             @endif
             <li class="nav-item">
-                <a class="nav-link" href="/">Ballina</a>
+                <a class="nav-link" id="nav" href="/">Ballina</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/shtepia">Shtepit</a>
+                <a class="nav-link" id="nav" href="/shtepia">Shtepit</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/banesa">Banesa</a>
+                <a class="nav-link" id="nav" href="/banesa">Banesa</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/about">RrethNesh</a>
+                <a class="nav-link" id="nav" href="/about">RrethNesh</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"
+                <a class="nav-link" id="nav"
                    href="/contact">Kontakti</a>
             </li>
         </ul>
         <ul class="navbar-nav" id="navbar">
             @if(Auth::check())
                 <li class="nav-item">
-                    <a class="nav-link" href="accont">Llogaria</a>
+                    <a class="nav-link" id="nav" href="accont">Llogaria</a>
                 </li>
             @endif
             @guest
-                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Kyqu</a></li>
+                <li class="nav-item"><a class="nav-link" id="nav" href="{{ route('login') }}">Kyqu</a></li>
                 @if (Route::has('register'))
-                    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Regjistrohu</a>
+                    <li class="nav-item"><a class="nav-link" id="nav" href="{{ route('register') }}">Regjistrohu</a>
                     </li>
                 @endif
             @else
