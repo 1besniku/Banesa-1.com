@@ -10,7 +10,9 @@
     color: black;
 
 }
-
+#link{
+    color: white;
+}
 .nav-link:hover {
     background-color: orange;
     color: white;

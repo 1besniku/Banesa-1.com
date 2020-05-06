@@ -15,7 +15,7 @@
 
                 <img src="{{asset('/images/'.$explode['0'])}}" width="200" height="100" alt="logo_section">
                 <div class="div-small">
-                    <h5>{{$arr->llojishpalljes}}</h5>
+                    <h5><a href="/detaje/{{$arr->id}}">{{$arr->llojishpalljes}}</a></h5>
                     <p>{{$arr->komenti}}</p>
                 </div>
 

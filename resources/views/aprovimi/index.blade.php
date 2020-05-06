@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.app3')
 @section('titulli')
     Aprovimi
 @endsection
@@ -38,7 +38,7 @@
                 <form class="form-horizontal" method="post" action="/aprovim/delete/{{$prop->id}}">
                     @csrf
                     @method('DELETE')
-                    <button class="bg-red-500 hover:bg-red-800 text-white font-bold py-1 px-4 rounded">Fshi</button>
+                    <button class="btn btn-danger">Fshi</button>
                 </form>
             </td>
             </tr>
