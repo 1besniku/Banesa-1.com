@@ -4,13 +4,14 @@
 <head>
 
     <title>Banesat</title>
-    <link href="css/style.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7135c7649e.js" crossorigin="anonymous"></script>
+    <link href="/css/style.css" rel="stylesheet">
     <style>
         .navbar-nav {
             margin-left: 100px;
@@ -25,7 +26,7 @@
 <body id="body">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img src="images_theem/logo banesat.png" width="300" height="50">
+    <img src="/images_theem/logo banesat.png" width="300" height="50">
     <button class="navbar-toggler" type="button" id="button1"data-toggle="collapse" data-target="#navbarTogglerDemo01"
             aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -124,7 +125,7 @@
 
         </div>
         <div class="col-6 logo-footer">
-            <img src="images_theem/logo banesat.png" width="200" height="50" alt="logo-footer">
+            <img src="/images_theem/logo banesat.png" width="200" height="50" alt="logo-footer">
             <p class="p-footer">www.Banesat.com</p>
         </div>
         <div class="col-2 span-footer">

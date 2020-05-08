@@ -19,9 +19,9 @@
     padding: 10px;
 }
 
-.img {
-    background-image: url('//imgaes_theem/sallonet.jpg');
-    height: 300px;
+#img {
+    background: url('/images_theem/sallone.jpg');
+    height:300px;
     margin-top: 20px;
 }
 
@@ -68,7 +68,9 @@
     color: white;
     text-decoration: none;
 }
-
+#section1{
+    margin-top: 10px;
+}
 
 .section-row{
     margin-top: 20px;
@@ -122,3 +124,5 @@
     padding: 5px;
     border-radius: 5px 5px 5px 5px;
 }
+
+

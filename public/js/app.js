@@ -9114,7 +9114,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 				break;
 			}
 			if ( (find = Expr.find[ type ]) ) {
-				// search, expanding context for leading sibling combinators
+				// Search, expanding context for leading sibling combinators
 				if ( (seed = find(
 					token.matches[0].replace( runescape, funescape ),
 					rsibling.test( tokens[0].type ) && testContext( context.parentNode ) || context
@@ -24492,7 +24492,7 @@ return jQuery;
      * _.indexOf([1, 2, 1, 2], 2);
      * // => 1
      *
-     * // search from the `fromIndex`.
+     * // Search from the `fromIndex`.
      * _.indexOf([1, 2, 1, 2], 2, 2);
      * // => 3
      */
@@ -24677,7 +24677,7 @@ return jQuery;
      * _.lastIndexOf([1, 2, 1, 2], 2);
      * // => 3
      *
-     * // search from the `fromIndex`.
+     * // Search from the `fromIndex`.
      * _.lastIndexOf([1, 2, 1, 2], 2, 2);
      * // => 1
      */
@@ -37096,7 +37096,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     broadcaster: 'pusher',
 //     key: process.env.MIX_PUSHER_APP_KEY,
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     encrypted: true
+//     forceTLS: true
 // });
 
 /***/ }),
@@ -37108,7 +37108,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/src/index.js):\nTypeError: theme is not a function\n    at module.exports (C:\\laragon\\www\\Banesat\\node_modules\\tailwindcss-plugins\\pagination\\index.js:42:18)\n    at Object.<anonymous> (C:\\laragon\\www\\Banesat\\tailwind.config.js:7:50)\n    at Module._compile (C:\\laragon\\www\\Banesat\\node_modules\\v8-compile-cache\\v8-compile-cache.js:192:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)\n    at Module.load (internal/modules/cjs/loader.js:815:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:727:14)\n    at Module.require (internal/modules/cjs/loader.js:852:19)\n    at require (C:\\laragon\\www\\Banesat\\node_modules\\v8-compile-cache\\v8-compile-cache.js:161:20)\n    at C:\\laragon\\www\\Banesat\\node_modules\\tailwindcss\\lib\\index.js:71:107\n    at C:\\laragon\\www\\Banesat\\node_modules\\tailwindcss\\lib\\processTailwindFeatures.js:32:20\n    at LazyResult.run (C:\\laragon\\www\\Banesat\\node_modules\\postcss\\lib\\lazy-result.js:295:14)\n    at LazyResult.asyncTick (C:\\laragon\\www\\Banesat\\node_modules\\postcss\\lib\\lazy-result.js:208:26)\n    at LazyResult.asyncTick (C:\\laragon\\www\\Banesat\\node_modules\\postcss\\lib\\lazy-result.js:221:14)\n    at C:\\laragon\\www\\Banesat\\node_modules\\postcss\\lib\\lazy-result.js:250:14\n    at new Promise (<anonymous>)\n    at LazyResult.async (C:\\laragon\\www\\Banesat\\node_modules\\postcss\\lib\\lazy-result.js:246:23)\n    at LazyResult.then (C:\\laragon\\www\\Banesat\\node_modules\\postcss\\lib\\lazy-result.js:127:17)\n    at C:\\laragon\\www\\Banesat\\node_modules\\postcss-loader\\src\\index.js:142:8\n    at C:\\laragon\\www\\Banesat\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at C:\\laragon\\www\\Banesat\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\laragon\\www\\Banesat\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\laragon\\www\\Banesat\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at C:\\laragon\\www\\Banesat\\node_modules\\postcss-loader\\src\\index.js:208:9");
 
 /***/ }),
 
