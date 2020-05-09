@@ -17,10 +17,10 @@ class DetajeController extends Controller
         $property = Property::find($id);
 
         $explode = explode(',',$property->foto);
-        //dd($explode);
+        $arr = ($explode[0]);
         $user = User::find($property->user_id);
 
-        return view('shpalljet.show', compact('property', 'user', 'explode'));
+        return view('shpalljet.show', compact('property', 'user', 'explode', 'arr'));
 
     }
     public function about(){
