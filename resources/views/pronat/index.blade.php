@@ -14,12 +14,12 @@
                 @endif
 
                 <h5 text align="center" class="mt-6 mb-8">Mbush Formulari per te postuar Shpalljen</h5>
-                <form class="form-horizontal" method="post" action="pronat-store" enctype="multipart/form-data">
+                <form class="form-horizontal mt-5" method="post" action="pronat-store" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="objekit">Objekti</label>
-                        <div class="col-md-8">
-                            <select class="form-control"
+                        <label class="col-md-3 col-form-label text-md-right" for="objekit">Objekti</label>
+                        <div class="col-md-6">
+                            <select class="form-control form-control-sm"
                                     name="objekti" id="objekit">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="Shtepi">Shtepi</option>
@@ -33,9 +33,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="lloji">LLoji i Shpalljes</label>
-                        <div class="col-md-8">
-                            <select class="form-control" name="lloji" id="lloji">
+                        <label class="col-md-3 col-form-label text-md-right" for="lloji">LLoji i Shpalljes</label>
+                        <div class="col-md-6">
+                            <select class="form-control form-control-sm" name="lloji" id="lloji">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="Shitet">Shitet</option>
                                 <option value="Me Qera">Me qera</option>
@@ -46,9 +46,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="kati">Kati</label>
-                        <div class="col-md-8">
-                            <select class="form-control" name="kati" id="kati">
+                        <label class="col-md-3 col-form-label text-md-right" for="kati">Kati</label>
+                        <div class="col-md-6">
+                            <select class="form-control form-control-sm" name="kati" id="kati">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -78,10 +78,10 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="ngrohja">Sistemi i instaluar i
+                        <label class="col-md-3 col-form-label text-md-right" for="ngrohja">Sistemi i instaluar i
                             nxemjes</label>
-                        <div class="col-md-8">
-                            <select type="text" class="form-control" name="ngrohja"
+                        <div class="col-md-6">
+                            <select type="text" class="form-control form-control-sm" name="ngrohja"
                                     id="ngrohja">
 
                                 <option value="Nxemje qendrore me radiatora">Nxemje qendrore me radiatora</option>
@@ -95,10 +95,10 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="burimi_nxemjes">Burimi i
+                        <label class="col-md-3 col-form-label text-md-right" for="burimi_nxemjes">Burimi i
                             nxemjes</label>
-                        <div class="col-md-8">
-                            <select type="text" class="form-control" name="burimi_nxemjes"
+                        <div class="col-md-6">
+                            <select type="text" class="form-control form-control-sm" name="burimi_nxemjes"
                                     id="burimi_nxemjes">
                                 <option disabled selected>zgjedh</option>
                                 <option value="Kallda me rryme">Kallda me rryme</option>
@@ -113,9 +113,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="rooms">Numri i dhomave</label>
-                        <div class="col-md-8">
-                            <select type="text" class="form-control" id="rooms" name="rooms"
+                        <label class="col-md-3 col-form-label text-md-right" for="rooms">Numri i dhomave</label>
+                        <div class="col-md-6">
+                            <select type="text" class="form-control form-control-sm" id="rooms" name="rooms"
                                     placeholder="Sheno Numrin e dhomave">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -135,9 +135,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="bathroom">Numri i Banjove</label>
-                        <div class="col-md-8">
-                            <select type="text" class="form-control" id="bathroom" name="bathroom">
+                        <label class="col-md-3 col-form-label text-md-right" for="bathroom">Numri i Banjove</label>
+                        <div class="col-md-6">
+                            <select type="text" class="form-control form-control-sm" id="bathroom" name="bathroom">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -157,10 +157,10 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="place">Hapsira ne
+                        <label class="col-md-3 col-form-label text-md-right" for="place">Hapsira ne
                             m<sup>2</sup></label>
-                        <div class="col-md-8">
-                            <input class="form-control"
+                        <div class="col-md-6">
+                            <input class="form-control form-control-sm"
                                    id="place" name="place" placeholder="SIPERFAQJA"
                                    @error('place') style="background-color: red" @enderror
                                    value="{{old('place')}}">
@@ -171,9 +171,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="adresa">Adresa</label>
-                        <div class="col-md-8">
-                            <input class="form-control" id="sms_description" id="adresa" name="adresa"
+                        <label class="col-md-3 col-form-label text-md-right" for="adresa">Adresa</label>
+                        <div class="col-md-6">
+                            <input class="form-control form-control-sm" id="sms_description" id="adresa" name="adresa"
                                    placeholder="Adresa" @error('adresa') style="background-color: red" @enderror
                                    value="{{old('adresa')}}">
                             @error('adresa')
@@ -182,9 +182,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="komuna">Komuna</label>
-                        <div class="col-md-8">
-                            <select class="form-control" name="komuna" id="komuna">
+                        <label class="col-md-3 col-form-label text-md-right" for="komuna">Komuna</label>
+                        <div class="col-md-6">
+                            <select class="form-control form-control-sm" name="komuna" id="komuna">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="Prishtin">Prishtin</option>
                                 <option value="Fushë Kosovë">Fushë Kosovë</option>
@@ -218,9 +218,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="ballkonat">Ballkonat</label>
-                        <div class="col-md-8">
-                            <select class="form-control"
+                        <label class="col-md-3 col-form-label text-md-right" for="ballkonat">Ballkonat</label>
+                        <div class="col-md-6">
+                            <select class="form-control form-control-sm"
                                     name="ballkonat" id="ballkonat">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="1">1</option>
@@ -240,9 +240,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="phone">Numri i Telefonit</label>
-                        <div class="col-md-8">
-                            <input class="form-control"
+                        <label class="col-md-3 col-form-label text-md-right" for="phone">Numri i Telefonit</label>
+                        <div class="col-md-6">
+                            <input class="form-control form-control-sm"
                                    id="phone" name="phone" placeholder="Numri i  Telefonit"
                                    @error('phone') style="background-color: red" @enderror
                                    value="{{old('phone')}}">
@@ -252,9 +252,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="price">Qmimi</label>
-                        <div class="col-md-8">
-                            <input class="form-control" id="price" name="price" placeholder="price"
+                        <label class="col-md-3 col-form-label text-md-right" for="price">Qmimi</label>
+                        <div class="col-md-6">
+                            <input class="form-control form-control-sm" id="price" name="price" placeholder="price"
                                    @error('price') style="background-color: red" @enderror
                                    value="{{old('price')}}">
                             @error('price')
@@ -263,9 +263,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="komenti">Pershkrimi</label>
-                        <div class="col-md-8">
-                            <textarea class="form-control"
+                        <label class="col-md-3 col-form-label text-md-right" for="komenti">Pershkrimi</label>
+                        <div class="col-md-6">
+                            <textarea class="form-control form-control-sm"
                                       id="komenti" name="komenti" placeholder="Me shum te dhena"
                                       @error('komenti') style="background-color: red" @enderror
                                       value="{{old('komenti')}}" cols="10" rows="5"></textarea>
