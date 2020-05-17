@@ -125,4 +125,26 @@
     border-radius: 5px 5px 5px 5px;
 }
 
+#src_home{
+    color: black;
 
+}
+
+#src_home:hover{
+    color: white;
+    background-color: orange;
+    padding: 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+#button{
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 20px 20px 20px 20px;
+    background-color:red;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}

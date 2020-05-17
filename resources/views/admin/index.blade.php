@@ -25,10 +25,12 @@
         </div>
         <button type="submit" class="btn btn-primary">Kerko</button>
     </form>
+        <div class="row mt-5">
+            <div class="col-sm-12">
+                <a href="/addUser" id="button" >Shto Perdoruesit</a>
+            </div>
+        </div>
 
-    <a href="/addUser"
-       class="btn btn-danger mt-6">Shto
-        Perdoruesit</a>
 
     <h1 class="text-center mt-5 mb-6">Adminstratort</h1>
 

@@ -35,7 +35,7 @@ class AdminstrationController extends Controller
     {
         // dd($request);
         $request->validate([
-                'name' => ['required' , ' min:2'],
+                'name' => ['required' , 'min:2'],
                 'surname' => ['required','min:2'],
                 'email' => ['required','email', new ValidationEmailUser],
                 'password' => ['required','min:6'],

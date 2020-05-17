@@ -3,6 +3,7 @@
     Llogaria ime
 @endsection
 @section('content')
+
     @if (session('status'))
 
         <div class="alert alert-success">
@@ -10,8 +11,10 @@
             <p> {{ session('status') }}</p>
         </div>
     @endif
-
-    <h3 class="text-center">Shpalljet qe keni postuar</h3>
+<p>
+    Ne llogarin tuaj keni shpalljet qe ju keni postuar ne <b>Banesa.com</b>. Ne llogarin tuaj mund ti fshini ose shikoni shpalljet tuaja.
+</p>
+    <h6 class="text-center mt-5 mb-4">Shpalljet qe keni postuar</h6>
     <table class="table table-striped mt-6 mb-8">
         <thead>
         <tr>

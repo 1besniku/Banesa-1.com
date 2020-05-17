@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::post('test-store', 'testController@store')->name('test_sotre');
 
 Auth::routes();
 

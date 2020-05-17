@@ -8,7 +8,7 @@
         <div class="row ">
             <div class="col-12">
 
-                <h1 text align="center">Formulari</h1>
+                <h1 text align="center">Edito Perdoruesit</h1>
                 <form class="form-horizontal" method="post" action="/user/update/{{$user['id']}}" autocomplete="off">
                     @csrf
                     <input type="hidden" name="id" value="{{$user['id']}}">
@@ -70,13 +70,20 @@
 
 
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right"></label>
-                        <div class="col-md-10">
-                            <button type="submit" class="btn btn-primary">Edito</button>
+                        <label class="col-md-5 col-form-label text-md-right"></label>
+                        <div class="col-md-5">
+                            <button type="submit" class="btn btn-success">Edito</button>
                         </div>
                     </div>
 
                 </form>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-10">
+                        <a class="btn btn-primary" href="/administrimi">Kthehu</a>
+                    </div>
+
+                </div>
             </div>
         </div>
 

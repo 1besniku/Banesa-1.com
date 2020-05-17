@@ -18,7 +18,7 @@ class KontakController extends Controller
         $request->validate([
             'emri' => 'required|min:3|max:11',
             'mbiemri' => 'required|min:2',
-            'emaili' => 'required',
+            'emaili' => 'required|email',
             'phone' => 'required|min:9',
             'mesazhi' => 'required',
         ]);

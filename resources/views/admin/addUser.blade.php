@@ -8,7 +8,7 @@
         <div class="row ">
             <div class="col-12">
 
-                <h1 class="text-center mt-6 mb-8">Formulari</h1>
+                <h1 class="text-center mt-6 mb-8">Shto Perdoruesin</h1>
                 <form class="form-horizontal" method="post" action="/Administration-store" autocomplete="off">
                     @csrf
 
@@ -70,14 +70,22 @@
 
 
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right"></label>
-                        <div class="col-md-10">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                        <label class="col-md-5 col-form-label text-md-right"></label>
+                        <div class="col-md-5">
+                            <button type="submit" class="btn btn-success">Shto </button>
                         </div>
                     </div>
 
                 </form>
+
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-10">
+                        <a class="btn btn-primary" href="/administrimi">Kthehu</a>
+                    </div>
+                </div>
             </div>
+
         </div>
 
 

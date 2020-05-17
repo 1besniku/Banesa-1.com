@@ -10,4 +10,7 @@ class testController extends Controller
     public function index(){
         return view('layouts.test');
     }
+    public function store(Request $request){
+        dd($request);
+    }
 }
