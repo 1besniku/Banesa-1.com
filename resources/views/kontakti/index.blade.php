@@ -58,8 +58,37 @@
         </div>
 
     </div>
-
-
-
-
+    <div id="map" class="mt-2"></div>
 @endsection
+    <style>
+        #map {
+            height: 200px; /* The height is 400 pixels */
+            width: 100%;
+        }
+    </style>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script>
+
+
+        function initMap() {
+            // The location of Uluru
+            var uluru = {lat: 42.6374, lng: 21.0931};
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 8, center: uluru});
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({position: uluru, map: map});
+        }
+
+
+
+
+
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdUaSDlzKuCgMb6mRNXUw1Vzx7Q4kFR6Y&callback=initMap">
+    </script>
+
+

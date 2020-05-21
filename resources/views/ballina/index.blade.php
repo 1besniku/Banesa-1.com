@@ -7,24 +7,11 @@
 
 
         <div class="row d-flex justify-content-around">
-            <div class="col-md-4 col-sm-12">
-                <select class="form-control select-section">
-                    <option>Vendi</option>
-                </select>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <select class="form-control select-section">
-                    <option>Shtepia</option>
-                </select>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <select class="form-control cselect-section">
-                    <option>Banes</option>
-                </select>
-            </div>
-        </div>
 
-        <div>
+
+
+
+
             <div class="d-flex section-row flex-sm-row flex-column">
                 <img src="images_theem/sallone.jpg" width="200" height="100" alt="logo_section">
                 <div class="div-small">

@@ -22,6 +22,7 @@ Route::get('/about','DetajeController@about')->name('about');
 Route::get('/test', 'testController@index');
 Route::get('/contact', 'KontakController@index')->name('contact');
 Route::get('/shtepia', 'ShpalljetController@shtepia')->name('shtepia');
+Route::get('/sherbimet', 'BallinaController@sherbimet')->name('ballina');
 Route::get('/banesa', 'ShpalljetController@banesa')->name('banesa');
 Route::post('contact-store', 'KontakController@store')->name('contact_store');
 

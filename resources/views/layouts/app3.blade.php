@@ -33,7 +33,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img src="/images_theem/logo banesat.png" width="300" height="50">
-    <button class="navbar-toggler" type="button" id="button1"data-toggle="collapse" data-target="#navbarTogglerDemo01"
+    <button class="navbar-toggler" type="button" id="button1" data-toggle="collapse" data-target="#navbarTogglerDemo01"
             aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -66,6 +66,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="nav" href="/banesa">Banesa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav" href="/sherbimet">Sherbimet</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="nav" href="/about">RrethNesh</a>
@@ -116,12 +119,12 @@
 </nav>
 <section id="section1">
     <div class="container">
-    <div class="row">
-        <div class="col-12">
-            @yield('content')
-        </div>
+        <div class="row">
+            <div class="col-12">
+                @yield('content')
+            </div>
 
-    </div>
+        </div>
     </div>
 </section>
 

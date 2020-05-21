@@ -12,4 +12,8 @@ class BallinaController extends Controller
         $arr = \App\Property::all();
         return view('ballina.index',compact('arr'));
     }
+
+    public function sherbimet(){
+        return view('sherbimet.sherbimet');
+    }
 }

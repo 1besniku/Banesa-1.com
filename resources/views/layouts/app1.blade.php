@@ -39,90 +39,93 @@
 
 <body id="body">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <img src="/images_theem/logo banesat.png" width="300" height="50">
-        <button class="navbar-toggler" type="button" id="button1" data-toggle="collapse"
-                data-target="#navbarTogglerDemo01"
-                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="/images_theem/logo banesat.png" width="300" height="50">
+    <button class="navbar-toggler" type="button" id="button1" data-toggle="collapse"
+            data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                @if(Auth::user() && Auth::user()->is_admin == 1)
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav" href="/administrimi">Administrimi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav" href="/aprovim">Aprovo Shpalljet</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav" href="/message">Mesazhat</a>
-                    </li>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            @if(Auth::user() && Auth::user()->is_admin == 1)
+                <li class="nav-item">
+                    <a class="nav-link" id="nav" href="/administrimi">Administrimi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav" href="/aprovim">Aprovo Shpalljet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav" href="/message">Mesazhat</a>
+                </li>
 
-                @endif
-                @if(Auth::check())
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav" href="/pronat">Posto
-                            Shpallje</a>
+            @endif
+            @if(Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link" id="nav" href="/pronat">Posto
+                        Shpallje</a>
+                </li>
+            @endif
+            <li class="nav-item">
+                <a class="nav-link" id="nav" href="/">Ballina</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav" href="/shtepia">Shtepit</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav" href="/banesa">Banesa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav" href="/sherbimet">Sherbimet</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav" href="/about">RrethNesh</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nav"
+                   href="/contact">Kontakti</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav" id="navbar">
+            @if(Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link" id="nav" href="accont">Llogaria</a>
+                </li>
+            @endif
+            @guest
+                <li class="nav-item"><a class="nav-link" id="nav" href="{{ route('login') }}">Kyqu</a></li>
+                @if (Route::has('register'))
+                    <li class="nav-item"><a class="nav-link" id="nav" href="{{ route('register') }}">Regjistrohu</a>
                     </li>
                 @endif
-                <li class="nav-item">
-                    <a class="nav-link" id="nav" href="/">Ballina</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="nav" href="/shtepia">Shtepit</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="nav" href="/banesa">Banesa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="nav" href="/about">RrethNesh</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="nav"
-                       href="/contact">Kontakti</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav" id="navbar">
-                @if(Auth::check())
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav" href="accont">Llogaria</a>
-                    </li>
-                @endif
-                @guest
-                    <li class="nav-item"><a class="nav-link" id="nav" href="{{ route('login') }}">Kyqu</a></li>
-                    @if (Route::has('register'))
-                        <li class="nav-item"><a class="nav-link" id="nav" href="{{ route('register') }}">Regjistrohu</a>
-                        </li>
-                    @endif
-                @else
-                    <li class="mr-6">
-                        <a id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+            @else
+                <li class="mr-6">
+                    <a id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+
+                    <div aria-labelledby="navbarDropdown">
+                        <a href="{{ route('logout') }}" id="routelogin"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
                         </a>
 
 
-                        <div aria-labelledby="navbarDropdown">
-                            <a href="{{ route('logout') }}" id="routelogin"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
 
+            @endguest
+        </ul>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-
-                @endguest
-            </ul>
-
-        </div>
-    </nav>
+    </div>
+</nav>
 
 <main class="row">
     <div class="col-12">
