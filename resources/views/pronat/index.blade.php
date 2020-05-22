@@ -277,209 +277,221 @@
                             @enderror
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="document">Documents</label>
-                        <div class="needsclick dropzone" id="document-dropzone">
-
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label text-md-right"></label>
+                        <div class="col-md-5">
+                            <div class="input-group control-group increment">
+                                <input type="file" name="filename[]" class="form-control">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-success" type="button"><i
+                                            class="glyphicon glyphicon-plus"></i>Add
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="clone hide">
+                        <div class="control-group input-group" style="margin-top:10px">
+                            <input type="file" name="filename[]" class="form-control">
+                            <div class="input-group-btn">
+                                <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i>
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-            <input type="hidden" id="lat" name="lat">
-            <input type="hidden" id="lng" name="lng">
-            <div class="form-group row">
-                <label class="col-md-3 col-form-label text-md-right"></label>
-                <div class="col-md-4">
-                    <button type="submit"  class="btn btn-primary">Posto</button>
-                </div>
+                    <input type="hidden" id="lat" name="lat">
+                    <input type="hidden" id="lng" name="lng">
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label text-md-right"></label>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary">Posto</button>
+                        </div>
+                    </div>
+
+                </form>
+
             </div>
-
-            </form>
-
         </div>
-    </div>
-        <script>
-            var uploadedDocumentMap = {}
-            Dropzone.options.documentDropzone = {
-                url: '',
-                maxFilesize: 2, // MB
-                addRemoveLinks: true,
-                headers: {
-                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
-                },
-                success: function (file, response) {
-                    $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
-                    uploadedDocumentMap[file.name] = response.name
-                },
-                removedfile: function (file) {
-                    file.previewElement.remove()
-                    var name = ''
-                    if (typeof file.file_name !== 'undefined') {
-                        name = file.file_name
-                    } else {
-                        name = uploadedDocumentMap[file.name]
-                    }
-                    $('form').find('input[name="document[]"][value="' + name + '"]').remove()
-                },
-                init: function () {
-                        @if(isset($project) && $project->document)
-                    var files =
-                    {!! json_encode($project->document) !!}
-                        for (var i in files) {
-                        var file = files[i]
-                        this.options.addedfile.call(this, file)
-                        file.previewElement.classList.add('dz-complete')
-                        $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-                    }
-                    @endif
-                }
-            }
+        {{--   <script>
+               var uploadedDocumentMap = {}
+               Dropzone.options.documentDropzone = {
+                   url: '',
+                   maxFilesize: 2, // MB
+                   addRemoveLinks: true,
+                   headers: {
+                       'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                   },
+                   success: function (file, response) {
+                       $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
+                       uploadedDocumentMap[file.name] = response.name
+                   },
+                   removedfile: function (file) {
+                       file.previewElement.remove()
+                       var name = ''
+                       if (typeof file.file_name !== 'undefined') {
+                           name = file.file_name
+                       } else {
+                           name = uploadedDocumentMap[file.name]
+                       }
+                       $('form').find('input[name="document[]"][value="' + name + '"]').remove()
+                   },
+                   init: function () {
+                           @if(isset($project) && $project->document)
+                       var files =
+                       {!! json_encode($project->document) !!}
+                           for (var i in files) {
+                           var file = files[i]
+                           this.options.addedfile.call(this, file)
+                           file.previewElement.classList.add('dz-complete')
+                           $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
+                       }
+                       @endif
+                   }
+               }
+           </script>
+
+       </div>
+       </div>
+       <style>
+           #map {
+               height: 200px; /* The height is 400 pixels */
+               width: 100%;
+           }
+       </style>
+
+
+
+
+       <script>
+           function initMap() {
+               {
+                   var uluru = {lat: 42.667542, lng: 21.166191};
+
+                   var map = new google.maps.Map(document.getElementById('map'), {
+                       zoom: 10,
+                       center: uluru,
+                       disableDefaultUI: true
+                   });
+                   map.addListener('click', function (e) {
+                       placeMarkerAndPanTo(e.latLng, map);
+                   });
+               }
+
+               function placeMarkerAndPanTo(latLng, map) {
+
+                   var marker = new google.maps.Marker({
+                       position: latLng,
+                       map: map,
+
+                   });
+                   var lat = latLng.lat().toFixed(6);
+                   var lng = latLng.lng().toFixed(6);
+                   getCords(lat, lng)
+
+               }
+
+               function getCords(lat, lng) {
+
+                   // Reference input html element with id=”lat”.
+                   var coords_lat = document.getElementById('lat');
+
+                   // Update latitude text box.
+                   coords_lat.value = lat;
+
+                   // Reference input html element with id=”lng”.
+                   var coords_lng = document.getElementById('lng');
+
+                   // Update longitude text box.
+                   coords_lng.value = lng;
+               }
+
+           }
+
+       </script>
+
+       <script async defer
+               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdUaSDlzKuCgMb6mRNXUw1Vzx7Q4kFR6Y&callback=initMap">
+       </script>--}}
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                $(".btn-success").click(function () {
+                    var html = $(".clone").html();
+                    $(".increment").after(html);
+                });
+
+                $("body").on("click", ".btn-danger", function () {
+                    $(this).parents(".control-group").remove();
+                });
+
+            });
+
         </script>
 
-    </div>
-    </div>
-    <style>
-        #map {
-            height: 200px; /* The height is 400 pixels */
-            width: 100%;
-        }
-    </style>
 
-
-
-
-    <script>
-        function initMap() {
-            {
-                var uluru = {lat: 42.667542, lng: 21.166191};
-
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 10,
-                    center: uluru,
-                    disableDefaultUI: true
-                });
-                map.addListener('click', function (e) {
-                    placeMarkerAndPanTo(e.latLng, map);
-                });
+        <style>
+            #map {
+                height: 200px; /* The height is 400 pixels */
+                width: 100%;
             }
+        </style>
 
-            function placeMarkerAndPanTo(latLng, map) {
-
-                var marker = new google.maps.Marker({
-                    position: latLng,
-                    map: map,
-
-                });
-                var lat = latLng.lat().toFixed(6);
-                var lng = latLng.lng().toFixed(6);
-                getCords(lat, lng)
-
-            }
-
-            function getCords(lat, lng) {
-
-                // Reference input html element with id=”lat”.
-                var coords_lat = document.getElementById('lat');
-
-                // Update latitude text box.
-                coords_lat.value = lat;
-
-                // Reference input html element with id=”lng”.
-                var coords_lng = document.getElementById('lng');
-
-                // Update longitude text box.
-                coords_lng.value = lng;
-            }
-
-        }
-
-    </script>
-
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdUaSDlzKuCgMb6mRNXUw1Vzx7Q4kFR6Y&callback=initMap">
-    </script>
-    {{-- <script type="text/javascript">
-
-         $(document).ready(function () {
-
-             $(".btn-success").click(function () {
-                 var html = $(".clone").html();
-                 $(".increment").after(html);
-             });
-
-             $("body").on("click", ".btn-danger", function () {
-                 $(this).parents(".control-group").remove();
-             });
-
-         });
-
-     </script>--}}
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+        <script>
 
 
+            function initMap() {
+                {
+                    var uluru = {lat: 42.667542, lng: 21.166191};
 
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 10,
+                        center: uluru,
+                        disableDefaultUI: true
+                    });
+                    map.addListener('click', function (e) {
+                        placeMarkerAndPanTo(e.latLng, map);
+                    });
+                }
 
+                function placeMarkerAndPanTo(latLng, map) {
 
-    <style>
-        #map {
-            height: 200px; /* The height is 400 pixels */
-            width: 100%;
-        }
-    </style>
+                    var marker = new google.maps.Marker({
+                        position: latLng,
+                        map: map,
 
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script>
+                    });
+                    var lat = latLng.lat().toFixed(6);
+                    var lng = latLng.lng().toFixed(6);
+                    getCords(lat, lng)
 
+                }
 
-        function initMap() {
-            {
-                var uluru = {lat: 42.667542, lng: 21.166191};
+                function getCords(lat, lng) {
 
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 10,
-                    center: uluru,
-                    disableDefaultUI: true
-                });
-                map.addListener('click', function (e) {
-                    placeMarkerAndPanTo(e.latLng, map);
-                });
-            }
+                    // Reference input html element with id=”lat”.
+                    var coords_lat = document.getElementById('lat');
 
-            function placeMarkerAndPanTo(latLng, map) {
+                    // Update latitude text box.
+                    coords_lat.value = lat;
 
-                var marker = new google.maps.Marker({
-                    position: latLng,
-                    map: map,
+                    // Reference input html element with id=”lng”.
+                    var coords_lng = document.getElementById('lng');
 
-                });
-                var lat = latLng.lat().toFixed(6);
-                var lng = latLng.lng().toFixed(6);
-                getCords(lat, lng)
+                    // Update longitude text box.
+                    coords_lng.value = lng;
+                }
 
             }
 
-            function getCords(lat, lng) {
+        </script>
 
-                // Reference input html element with id=”lat”.
-                var coords_lat = document.getElementById('lat');
-
-                // Update latitude text box.
-                coords_lat.value = lat;
-
-                // Reference input html element with id=”lng”.
-                var coords_lng = document.getElementById('lng');
-
-                // Update longitude text box.
-                coords_lng.value = lng;
-            }
-
-        }
-
-    </script>
-
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdUaSDlzKuCgMb6mRNXUw1Vzx7Q4kFR6Y&callback=initMap">
-    </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdUaSDlzKuCgMb6mRNXUw1Vzx7Q4kFR6Y&callback=initMap">
+        </script>
     {{--  <script type="text/javascript">
 
           $(document).ready(function () {

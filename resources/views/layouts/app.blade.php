@@ -129,6 +129,7 @@
         </div>
     </div>
 </main>
+
 <section id="section1">
     <div class="row d-flex ">
         <div class="col-2"></div>
@@ -149,6 +150,7 @@
 </section>
 
 <footer id="footer">
+    <hr style="border-top: 5px solid orange;">
     <div class="row d-flex justify-content-between flex-sm-row flex-column bg-light">
         <div class="col-2">
 

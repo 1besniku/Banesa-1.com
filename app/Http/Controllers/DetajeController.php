@@ -11,7 +11,7 @@ class DetajeController extends Controller
 {
     //
 
-    public function index($id){
+    public function shtepi($id){
         //dd($id);
 
         $property = Property::find($id);
@@ -22,6 +22,16 @@ class DetajeController extends Controller
 
         return view('shpalljet.show', compact('property', 'user', 'explode', 'arr'));
 
+    }
+    public function banesa($id){
+        //dd($id);
+        $property = Property::find($id);
+
+        $explode = explode(',',$property->foto);
+        $arr = ($explode[0]);
+        $user = User::find($property->user_id);
+
+        return view('shpalljet.banesat_show', compact('property', 'user', 'explode', 'arr'));
     }
     public function about(){
 

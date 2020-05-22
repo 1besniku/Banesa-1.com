@@ -125,17 +125,6 @@
     border-radius: 5px 5px 5px 5px;
 }
 
-#src_home{
-    color: blue;
-
-}
-
-#src_home:hover{
-    color: white;
-    background-color: orange;
-    padding: 5px;
-    border-radius: 5px 5px 5px 5px;
-}
 #button{
     display: block;
     width: 100%;
@@ -148,3 +137,9 @@
     cursor: pointer;
     text-align: center;
 }
+#inputState{
+   width: 193px;
+    height: 40px;
+}
+
+

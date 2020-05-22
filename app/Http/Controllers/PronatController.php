@@ -25,7 +25,7 @@ class PronatController extends Controller
 
     public function store(Request $request)
     {
-            dd($request->all());
+            //dd($request->all());
         if ($request->filename == null) {
             return back();
         } else {
