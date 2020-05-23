@@ -30,4 +30,6 @@
     </div>
     @endforeach
     {{ $shtepia->links() }}
+
+
 @endsection

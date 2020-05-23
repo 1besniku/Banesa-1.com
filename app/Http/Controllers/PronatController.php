@@ -91,7 +91,7 @@ class PronatController extends Controller
 
                     $destination_path = public_path('/images');
                     $image->move($destination_path, $fileName);
-                    $img = Image::make(public_path('/images/' . $fileName))->resize(600, 600);
+                    $img = Image::make(public_path('/images/' . $fileName))->resize(300, 300);
                     $img->save();
                     $data[] = $fileName;
                     //dd($img);

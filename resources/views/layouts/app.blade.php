@@ -28,6 +28,7 @@
 </html>
 <body id="body">
 
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img src="/images_theem/logo banesat.png" width="300" height="50">
     <button class="navbar-toggler" type="button" id="button1" data-toggle="collapse"
@@ -66,7 +67,7 @@
                 <a class="nav-link" id="nav" href="/banesa">Banesa</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="nav" href="/sherbimet">Sherbimet</a>
+                <a class="nav-link" id="nav" href="/lokalet">Lokalet</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="nav" href="/about">RrethNesh</a>
@@ -77,11 +78,7 @@
             </li>
         </ul>
         <ul class="navbar-nav" id="navbar">
-            @if(Auth::check())
-                <li class="nav-item">
-                    <a class="nav-link" id="nav" href="accont">Llogaria</a>
-                </li>
-            @endif
+
             @guest
                 <li class="nav-item"><a class="nav-link" id="nav" href="{{ route('login') }}">Kyqu</a></li>
                 @if (Route::has('register'))
@@ -89,26 +86,27 @@
                     </li>
                 @endif
             @else
-                <li class="mr-6">
-                    <a id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-
-                    <div aria-labelledby="navbarDropdown">
-                        <a href="{{ route('logout') }}" id="routelogin"
+                <div class="btn-group">
+                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->name }} {{Auth::user()->surname}}
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="{{ route('logout') }}" class="dropdown-item" id="nav"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            Dil
                         </a>
-
-
+                        <a class="nav-link" id="nav" href="accont">Llogaria</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                               style="display: none;">
                             @csrf
                         </form>
+
                     </div>
+                </div>
+
+
 
             @endguest
         </ul>

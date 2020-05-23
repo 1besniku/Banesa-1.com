@@ -112,5 +112,10 @@ class ShpalljetController extends Controller
        // dd($banesa);
         return view('shpalljet.banesa',compact('banesa'));
     }
+    public function lokalet(){
+        $lokali = Property::where('llojishpalljes','=','Lokal')->where('aprovimi','=','1')->paginate(10);
+       // dd($lokali);
+        return view('lokalet.index',compact('lokali'));
+    }
 
 }

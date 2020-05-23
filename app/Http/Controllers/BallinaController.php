@@ -11,11 +11,8 @@ class BallinaController extends Controller
     //
     public function index(){
         $arr = \App\Property::latest()->paginate(7);
+        //dd($arr);
         return view('ballina.index',compact('arr'));
-    }
-
-    public function sherbimet(){
-        return view('sherbimet.sherbimet');
     }
 
     public function  show($id){

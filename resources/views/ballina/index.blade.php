@@ -66,7 +66,7 @@
         </div>
 
     </div>
-    @foreach($arr as $array)
+    @foreach($arr as $array )
         <div class="d-flex flex-column row  flex-sm-column row">
 
             <div>
@@ -80,7 +80,7 @@
                         <h5>{{$array->llojishpalljes}}</h5>
                         <p>{{$array->komenti}}</p>
 
-                        <a href='ballinashow/{{$array->id}}' class="btn btn-info">Detajet</a>
+                        <a href='/lokaletshow/{{$array->id}}' class="btn btn-info">Detajet</a>
                     </div>
 
                 </div>

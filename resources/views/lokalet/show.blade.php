@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('titulli')
-    Detajet
+   Lokal-i
 @endsection
 @section('content')
+
 
 
     <div class="card">
@@ -36,7 +37,7 @@
                                 </div>
 
                             </div>
-                                @foreach($explode as $arr)
+                            @foreach($explode as $arr)
                                 <div class="carousel-item">
                                     <!--Mask color-->
                                     <div class="view">
@@ -140,11 +141,6 @@
         </div>
     </div>
     <div class="card-headerd">
-        <a class="btn btn-outline-info mt-3" href="/shtepia">Kthehu</a>
+        <a class="btn btn-outline-info mt-3" href="/lokalet">Kthehu</a>
     </div>
-
-
-
-
-
 @endsection

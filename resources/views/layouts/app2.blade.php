@@ -12,18 +12,22 @@
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7135c7649e.js" crossorigin="anonymous"></script>
     <link href="/css/style.css" rel="stylesheet">
-    <style>
-        .navbar-nav {
-            margin-left: 100px;
-        }
 
-        #navbar {
-            margin-left: 150px;
-        }
-    </style>
 </head>
+
+<style>
+    .navbar-nav {
+        margin-left: 100px;
+    }
+
+    #navbar {
+        margin-left: 150px;
+    }
+
+</style>
 </html>
 <body id="body">
+
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img src="/images_theem/logo banesat.png" width="300" height="50">
@@ -63,7 +67,7 @@
                 <a class="nav-link" id="nav" href="/banesa">Banesa</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="nav" href="/sherbimet">Sherbimet</a>
+                <a class="nav-link" id="nav" href="/lokalet">Lokalet</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="nav" href="/about">RrethNesh</a>
@@ -74,11 +78,7 @@
             </li>
         </ul>
         <ul class="navbar-nav" id="navbar">
-            @if(Auth::check())
-                <li class="nav-item">
-                    <a class="nav-link" id="nav" href="accont">Llogaria</a>
-                </li>
-            @endif
+
             @guest
                 <li class="nav-item"><a class="nav-link" id="nav" href="{{ route('login') }}">Kyqu</a></li>
                 @if (Route::has('register'))
@@ -86,32 +86,34 @@
                     </li>
                 @endif
             @else
-                <li class="mr-6">
-                    <a id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-
-                    <div aria-labelledby="navbarDropdown">
-                        <a href="{{ route('logout') }}" id="routelogin"
+                <div class="btn-group">
+                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->name }} {{Auth::user()->surname}}
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="{{ route('logout') }}" class="dropdown-item" id="nav"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            Dil
                         </a>
-
-
+                        <a class="nav-link" id="nav" href="accont">Llogaria</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                               style="display: none;">
                             @csrf
                         </form>
+
                     </div>
+                </div>
+
+
 
             @endguest
         </ul>
 
     </div>
 </nav>
+
 
 <main class="row">
     <div class="col-12">
@@ -125,11 +127,18 @@
         </div>
     </div>
 </main>
+
 <section id="section1">
-    @yield('content')
+    <div class="row d-flex ">
+       <div class="col-sm-12">
+           @yield('content')
+       </div>
+
+    </div>
 </section>
 
 <footer id="footer">
+    <hr style="border-top: 5px solid orange;">
     <div class="row d-flex justify-content-between flex-sm-row flex-column bg-light">
         <div class="col-2">
 
@@ -147,6 +156,7 @@
     </div>
 </footer>
 
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -163,7 +173,5 @@
         });
     });
 </script>
-
-
 </body>
 </html>

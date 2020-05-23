@@ -68,8 +68,9 @@
                 <a class="nav-link" id="nav" href="/banesa">Banesa</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="nav" href="/sherbimet">Sherbimet</a>
+                <a class="nav-link" id="nav" href="lokalet">Lokalet</a>
             </li>
+                @if(!Auth::user() && Auth::user()->is_admin == 1))
             <li class="nav-item">
                 <a class="nav-link" id="nav" href="/about">RrethNesh</a>
             </li>
@@ -77,13 +78,14 @@
                 <a class="nav-link" id="nav"
                    href="/contact">Kontakti</a>
             </li>
+                    @endif
         </ul>
         <ul class="navbar-nav" id="navbar">
-            @if(Auth::check())
+           {{-- @if(Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" id="nav" href="accont">Llogaria</a>
                 </li>
-            @endif
+            @endif--}}
             @guest
                 <li class="nav-item"><a class="nav-link" id="nav" href="{{ route('login') }}">Kyqu</a></li>
                 @if (Route::has('register'))
@@ -91,28 +93,27 @@
                     </li>
                 @endif
             @else
-                <li class="mr-6">
-                    <a id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-
-                    <div aria-labelledby="navbarDropdown">
-                        <a href="{{ route('logout') }}" id="routelogin"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                              style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-
             @endguest
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->name }} {{Auth::user()->surname}}
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="{{ route('logout') }}" class="dropdown-item" id="nav"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                Dil
+                            </a>
+                            <a class="nav-link" id="nav" href="accont">Llogaria</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
+
+                        </div>
+
         </ul>
 
     </div>

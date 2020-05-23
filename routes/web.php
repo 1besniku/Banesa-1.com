@@ -22,7 +22,7 @@ Route::get('/about','DetajeController@about')->name('about');
 Route::get('/test', 'testController@index');
 Route::get('/contact', 'KontakController@index')->name('contact');
 Route::get('/shtepia', 'ShpalljetController@shtepia')->name('shtepia');
-Route::get('/sherbimet', 'BallinaController@sherbimet')->name('ballina');
+Route::get('/lokalet', 'ShpalljetController@lokalet')->name('ballina');
 Route::get('/banesa', 'ShpalljetController@banesa')->name('banesa');
 Route::post('/contact-store', 'KontakController@store')->name('contact_store');
 
@@ -32,6 +32,7 @@ Route::get('/shpalljet' , 'ShpalljetController@index')->name('shpalljet');
 Route::post('/pronat-store', 'PronatController@store')->name('pronat_store');
 Route::get('/detaje/{id}', 'DetajeController@shtepi')->name('detajet');
 Route::get('/ballinashow/{id}', 'BallinaController@show')->name('ballina_show');
+Route::get('/lokaletshow/{id}', 'DetajeController@lokaletshow')->name('lokalet_show');
 Route::get('/banesa/{id}', 'DetajeController@banesa')->name('ballina_show');
 Route::group(['middleware' => ['is_admin',]], function () {
     Route::get('/aprovim', 'AprovimiController@index')->name('aprovimi');
