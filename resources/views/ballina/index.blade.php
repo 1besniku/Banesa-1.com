@@ -9,13 +9,22 @@
         <div class="form-group row">
             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Objkti</label>
             <div class="col-sm-8">
-                <input type="email" class="form-control form-control-sm">
+                <select class="form-control form-control-sm">
+                    <option disabled >Zgjedh</option>
+                    <option>Shtepi</option>
+                    <option>Banes</option>
+                    <option>Lokal</option>
+                </select>
             </div>
         </div>
         <div class="form-group row">
             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Shpallja</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control form-control-sm">
+                <select class="form-control form-control-sm">
+                    <option disabled >Zgjedh</option>
+                    <option>Ne shitje</option>
+                    <option>Me qera</option>
+                </select>
             </div>
         </div>
         <div class="form-group row">

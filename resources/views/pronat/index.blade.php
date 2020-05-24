@@ -14,7 +14,26 @@
                     </div>
                 @endif
 
-                <h5 text align="center" class="mt-6 mb-8">Mbush Formulari per te postuar Shpalljen</h5>
+                <p >Ne linkun <b>"Posto Shpllje"</b> mund të postohen shpalljet e juaja. Ky link permban një formular qe
+                    është i lehët për perdoruesit. Në rreshti e par objekti duhët
+                    të zgjidhni objektin qe doni ta postoni, pas rreshtit objkti keni rreshtin <b>Lloji i Shpalljes</b>
+                    tek ky rresht duhet të selektoni nese objekti i juaj është <b>Me qera apo Ne Shitje</b> .
+                    Tek rreshti <b>"Kati"</b> nese objekti juaj është <b>"Banes"</b> duhet se selktoni katin ne të cilin
+                    gjendet banesa,nese objekti juaj eshte <b>"Shtepi"</b> duhet te selektoni sa kat posedon shtepia
+                    juaj,
+                    e njejta
+                    gje vlen dhe per lokalin. Tek rreshti <b>"Hapsira ne m<sup>2"</sup></b> duhet te shënohet hapsira që
+                    posedon objketi juaj ne m<sup>2</sup>, <b> vrejte fusha duhet te permmban vete numer p.sh 100,200 dhe
+                        jo 100<sup>2</sup>por vetem numer të thjesht</b> . Fushat tjera jan të lehta per tu plotsuar.
+                    Vrejte
+                    postimi juaj duhet te përmban më së paku 1 fotografi. Pasi te keni kilikuar butonin <b>Posto</b>
+                    nëse gjithqka është ne rregull duhet te prisni per aprovim te shpalljes tuaj nga administratort.
+
+                    </b>
+
+                    </b>
+                </p>
+
                 <form class="form-group mt-5" method="post" action="/pronat-store" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group row">

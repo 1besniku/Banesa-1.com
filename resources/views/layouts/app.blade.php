@@ -130,9 +130,9 @@
 
 <section id="section1">
     <div class="row d-flex ">
-        <div class="col-2"></div>
+        <div class="col-1"></div>
 
-        <div class="col-6">
+        <div class="col-7">
             @yield('content')
         </div>
 
