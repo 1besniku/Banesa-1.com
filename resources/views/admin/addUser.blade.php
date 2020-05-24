@@ -1,4 +1,4 @@
-@extends('layouts.app3')
+@extends('layouts.app2')
 @section('titulli')
     Shto Perdoruesit
 @endsection
@@ -8,14 +8,14 @@
         <div class="row ">
             <div class="col-12">
 
-                <h1 class="text-center mt-6 mb-8">Shto Perdoruesin</h1>
+                <h5 class="text-center mt-6 mb-8">Shto Perdoruesin</h5>
                 <form class="form-horizontal" method="post" action="/Administration-store" autocomplete="off">
                     @csrf
 
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="name">Emri</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control"  id="name" name="name" placeholder="Emri"
+                        <label class="col-md-3 col-form-label text-md-right" for="name">Emri</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control form-control-sm"  id="name" name="name" placeholder="Emri"
                                    value="{{old('name')}}">
                             @error('name')
                             {{ $message }}
@@ -23,9 +23,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="surname">Mbiemri</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control"  id="name" name="surname" placeholder="Mbiemri"
+                        <label class="col-md-3 col-form-label text-md-right" for="surname">Mbiemri</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control form-control-sm"  id="name" name="surname" placeholder="Mbiemri"
                                    value="{{old('surname')}}">
                             @error('name')
                             {{ $message }}
@@ -34,9 +34,9 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="email">Email-i</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control"  id="email" name="email" placeholder="Email" >
+                        <label class="col-md-3 col-form-label text-md-right" for="email">Email-i</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control form-control-sm"  id="email" name="email" placeholder="Email" >
                             @error('email')
                             {{ $message }}
                             @enderror
@@ -44,9 +44,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="password">Password</label>
-                        <div class="col-md-8">
-                            <input type="password" class="form-control" id="email"  id="password" name="password" required
+                        <label class="col-md-3 col-form-label text-md-right" for="password">Password</label>
+                        <div class="col-md-6">
+                            <input type="password" class="form-control form-control-sm" id="email"  id="password" name="password" required
                                    autocomplete="new-password"
                                    placeholder="Password" >
                             @error('password')
@@ -56,9 +56,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right" for="confirmpassword">Password</label>
-                        <div class="col-md-8">
-                            <input type="password" class="form-control"  id="confirmpassword"
+                        <label class="col-md-3 col-form-label text-md-right" for="confirmpassword">Password</label>
+                        <div class="col-md-6">
+                            <input type="password" class="form-control form-control-sm"  id="confirmpassword"
                                    name="confirmpassword"
                                    required autocomplete="new-password" placeholder="Confirm Password" >
                             @error('confirmpassword')
@@ -70,8 +70,8 @@
 
 
                     <div class="form-group row">
-                        <label class="col-md-5 col-form-label text-md-right"></label>
-                        <div class="col-md-5">
+                        <label class="col-md-3 col-form-label text-md-right"></label>
+                        <div class="col-md-6">
                             <button type="submit" class="btn btn-success">Shto </button>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
 
                 <div class="row">
                     <div class="col-2"></div>
-                    <div class="col-10">
+                    <div class="col-8">
                         <a class="btn btn-primary" href="/administrimi">Kthehu</a>
                     </div>
                 </div>

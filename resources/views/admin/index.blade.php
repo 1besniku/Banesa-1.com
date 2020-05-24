@@ -1,9 +1,9 @@
-@extends('layouts.app3')
+@extends('layouts.app2')
 @section('titulli')
     Administrimi
 @endsection
 @section('content')
-
+<div class="container">
     <h2 class="text-center mb-6 mt-5">Administrimi</h2>
     <form method="post" action="/user/search" autocomplete="off">
         @csrf
@@ -91,6 +91,6 @@
         @endforeach
         </tbody>
     </table>
-
+</div>
 
 @endsection

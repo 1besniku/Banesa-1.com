@@ -20,7 +20,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label text-md-right" for="objekit">Objekti</label>
                         <div class="col-md-5">
-                            <select class="form-control form-control-lg"
+                            <select class="form-control form-control-sm"
                                     name="objekti" id="objekit">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="Shtepi">Shtepi</option>
@@ -36,7 +36,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label text-md-right" for="lloji">LLoji i Shpalljes</label>
                         <div class="col-md-5">
-                            <select class="form-control  form-control-lg" name="lloji" id="lloji">
+                            <select class="form-control  form-control-sm" name="lloji" id="lloji">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="Shitet">Shitet</option>
                                 <option value="Me Qera">Me qera</option>
@@ -49,7 +49,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label text-md-right" for="kati">Kati</label>
                         <div class="col-md-5">
-                            <select class="form-control  form-control-lg" name="kati" id="kati">
+                            <select class="form-control  form-control-sm" name="kati" id="kati">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -82,7 +82,7 @@
                         <label class="col-md-3 col-form-label text-md-right" for="ngrohja">Sistemi i instaluar i
                             nxemjes</label>
                         <div class="col-md-5">
-                            <select type="text" class="form-control  form-control-lg" name="ngrohja"
+                            <select type="text" class="form-control  form-control-sm" name="ngrohja"
                                     id="ngrohja">
 
                                 <option value="Nxemje qendrore me radiatora">Nxemje qendrore me radiatora</option>
@@ -99,7 +99,7 @@
                         <label class="col-md-3 col-form-label text-md-right" for="burimi_nxemjes">Burimi i
                             nxemjes</label>
                         <div class="col-md-5">
-                            <select type="text" class="form-control  form-control-lg" name="burimi_nxemjes"
+                            <select type="text" class="form-control  form-control-sm" name="burimi_nxemjes"
                                     id="burimi_nxemjes">
                                 <option disabled selected>zgjedh</option>
                                 <option value="Kallda me rryme">Kallda me rryme</option>
@@ -116,7 +116,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label text-md-right" for="rooms">Numri i dhomave</label>
                         <div class="col-md-5">
-                            <select type="text" class="form-control  form-control-lg" id="rooms" name="rooms"
+                            <select type="text" class="form-control  form-control-sm" id="rooms" name="rooms"
                                     placeholder="Sheno Numrin e dhomave">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -138,7 +138,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label text-md-right" for="bathroom">Numri i Banjove</label>
                         <div class="col-md-5">
-                            <select type="text" class="form-control  form-control-lg" id="bathroom" name="bathroom">
+                            <select type="text" class="form-control  form-control-sm" id="bathroom" name="bathroom">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -161,7 +161,7 @@
                         <label class="col-md-3 col-form-label text-md-right" for="place">Hapsira ne
                             m<sup>2</sup></label>
                         <div class="col-md-5">
-                            <input class="form-control form-control-lg"
+                            <input class="form-control form-control-sm"
                                    id="place" name="place" placeholder="SIPERFAQJA"
                                    @error('place') style="background-color: red" @enderror
                                    value="{{old('place')}}">
@@ -174,7 +174,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label text-md-right" for="adresa">Adresa</label>
                         <div class="col-md-5">
-                            <input class="form-control form-control-lg" id="adresa" name="adresa"
+                            <input class="form-control form-control-sm" id="adresa" name="adresa"
                                    placeholder="Adresa" @error('adresa') style="background-color: red" @enderror
                                    value="{{old('adresa')}}">
                             @error('adresa')
@@ -185,7 +185,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label text-md-right" for="komuna">Komuna</label>
                         <div class="col-md-5">
-                            <select class="form-control form-control-lg" name="komuna" id="komuna">
+                            <select class="form-control form-control-sm" name="komuna" id="komuna">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="Prishtin">Prishtin</option>
                                 <option value="Fushë Kosovë">Fushë Kosovë</option>
@@ -221,7 +221,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label text-md-right" for="ballkonat">Ballkonat</label>
                         <div class="col-md-5">
-                            <select class="form-control form-control-lg"
+                            <select class="form-control form-control-sm"
                                     name="ballkonat" id="ballkonat">
                                 <option disabled selected>Zgjedh</option>
                                 <option value="1">1</option>
@@ -243,7 +243,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label text-md-right" for="phone">Numri i Telefonit</label>
                         <div class="col-md-5">
-                            <input class="form-control form-control-lg"
+                            <input class="form-control form-control-sm"
                                    id="phone" name="phone" placeholder="Numri i  Telefonit"
                                    @error('phone') style="background-color: red" @enderror
                                    value="{{old('phone')}}">
@@ -256,7 +256,7 @@
                         <label class="col-md-3 col-form-label text-md-right" for="price">Qmimi</label>
                         <div class="col-md-5">
 
-                            <input class="form-control" id="price" name="price" placeholder="price"
+                            <input class="form-control form-control-sm" id="price" name="price" placeholder="price"
                                    @error('price') style="background-color: red" @enderror
                                    value="{{old('price')}}">
                             @error('price')
@@ -268,7 +268,7 @@
                         <label class="col-md-3 col-form-label text-md-right" for="komenti">Pershkrimi</label>
                         <div class="col-md-5">
 
-                            <textarea class="form-control form-control-lg"
+                            <textarea class="form-control form-control-sm"
                                       id="komenti" name="komenti" placeholder="Me shum te dhena"
                                       @error('komenti') style="background-color: red" @enderror
                                       value="{{old('komenti')}}" cols="10" rows="5"></textarea>
@@ -281,7 +281,7 @@
                         <label class="col-md-3 col-form-label text-md-right"></label>
                         <div class="col-md-5">
                             <div class="input-group control-group increment">
-                                <input type="file" name="filename[]" class="form-control">
+                                <input type="file" name="filename[]" class="form-control form-control-sm">
                                 <div class="input-group-btn">
                                     <button class="btn btn-success" type="button"><i
                                             class="glyphicon glyphicon-plus"></i>Add
@@ -290,130 +290,33 @@
                             </div>
                         </div>
                     </div>
-                    <div class="clone hide">
-                        <div class="control-group input-group" style="margin-top:10px">
-                            <input type="file" name="filename[]" class="form-control">
-                            <div class="input-group-btn">
-                                <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i>
-                                    Remove
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <input type="hidden" id="lat" name="lat">
-                    <input type="hidden" id="lng" name="lng">
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label text-md-right"></label>
-                        <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary">Posto</button>
+                        <div class="col-md-5">
+                            <div class="clone hide">
+                                <div class="control-group input-group" style="margin-top:10px">
+                                    <input type="file" name="filename[]" class="form-control">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-danger" type="button"><i
+                                                class="glyphicon glyphicon-remove"></i>
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <input type="hidden" id="lat" name="lat">
+                            <input type="hidden" id="lng" name="lng">
+
+                            <button type="submit" class="btn btn-primary mt-2">Posto</button>
                         </div>
                     </div>
-
                 </form>
 
             </div>
         </div>
-        {{--   <script>
-               var uploadedDocumentMap = {}
-               Dropzone.options.documentDropzone = {
-                   url: '',
-                   maxFilesize: 2, // MB
-                   addRemoveLinks: true,
-                   headers: {
-                       'X-CSRF-TOKEN': "{{ csrf_token() }}"
-                   },
-                   success: function (file, response) {
-                       $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
-                       uploadedDocumentMap[file.name] = response.name
-                   },
-                   removedfile: function (file) {
-                       file.previewElement.remove()
-                       var name = ''
-                       if (typeof file.file_name !== 'undefined') {
-                           name = file.file_name
-                       } else {
-                           name = uploadedDocumentMap[file.name]
-                       }
-                       $('form').find('input[name="document[]"][value="' + name + '"]').remove()
-                   },
-                   init: function () {
-                           @if(isset($project) && $project->document)
-                       var files =
-                       {!! json_encode($project->document) !!}
-                           for (var i in files) {
-                           var file = files[i]
-                           this.options.addedfile.call(this, file)
-                           file.previewElement.classList.add('dz-complete')
-                           $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-                       }
-                       @endif
-                   }
-               }
-           </script>
 
-       </div>
-       </div>
-       <style>
-           #map {
-               height: 200px; /* The height is 400 pixels */
-               width: 100%;
-           }
-       </style>
-
-
-
-
-       <script>
-           function initMap() {
-               {
-                   var uluru = {lat: 42.667542, lng: 21.166191};
-
-                   var map = new google.maps.Map(document.getElementById('map'), {
-                       zoom: 10,
-                       center: uluru,
-                       disableDefaultUI: true
-                   });
-                   map.addListener('click', function (e) {
-                       placeMarkerAndPanTo(e.latLng, map);
-                   });
-               }
-
-               function placeMarkerAndPanTo(latLng, map) {
-
-                   var marker = new google.maps.Marker({
-                       position: latLng,
-                       map: map,
-
-                   });
-                   var lat = latLng.lat().toFixed(6);
-                   var lng = latLng.lng().toFixed(6);
-                   getCords(lat, lng)
-
-               }
-
-               function getCords(lat, lng) {
-
-                   // Reference input html element with id=”lat”.
-                   var coords_lat = document.getElementById('lat');
-
-                   // Update latitude text box.
-                   coords_lat.value = lat;
-
-                   // Reference input html element with id=”lng”.
-                   var coords_lng = document.getElementById('lng');
-
-                   // Update longitude text box.
-                   coords_lng.value = lng;
-               }
-
-           }
-
-       </script>
-
-       <script async defer
-               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdUaSDlzKuCgMb6mRNXUw1Vzx7Q4kFR6Y&callback=initMap">
-       </script>--}}
         <script type="text/javascript">
 
             $(document).ready(function () {

@@ -143,5 +143,8 @@
     height: 50px;
     width: 50px;
 }
-
+#card{
+    background-color: whitesmoke;
+    border: none;
+}
 

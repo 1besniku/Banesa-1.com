@@ -93,7 +93,6 @@
                     </li>
                 @endif
             @else
-            @endguest
 
                     <div class="btn-group">
                         <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
@@ -113,7 +112,8 @@
                             </form>
 
                         </div>
-
+                    </div>
+        @endguest
         </ul>
 
     </div>

@@ -136,12 +136,12 @@
             @yield('content')
         </div>
 
-        <div class="col-md-2 col-sm-12">
+        <div class="col-md-3 col-sm-12">
+            @yield('search')
             <img src="/images_theem/sallone.jpg" width="300px" height="600">
         </div>
 
-
-        <div class="col-2"></div>
+        <div class="col-1"></div>
 
 
     </div>
