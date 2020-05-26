@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Rules\OldPassword;
 use App\Rules\ValidationEmailUser;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminstrationController extends Controller
@@ -24,6 +26,49 @@ class AdminstrationController extends Controller
         return view('admin.addUser');
     }
 
+    public function simpleUser()
+    {
+
+        $user = User::where('id', '=', Auth::user()->id)->first();
+        //dd($user);
+        return view('admin.simpleUser', compact('user'));
+    }
+
+    public function update_privatcy(Request $request,$id)
+    {
+       // dd($request);
+        $request->validate([
+            'name' => 'sometimes|required|min:3',
+            'surname' => 'sometimes|required|min:3',
+            'email' => 'required|email',
+            'password' => 'nullable|min:6|',
+            'confirmpassword' => 'nullable|required_with:password|same:password|min:6',
+        ]);
+
+        $user = User::find($id);
+        //dd($user);
+        //$user->update($request->all())
+
+        if ($request->password == null) {
+            $user->update([
+                'name' => $request->name,
+                'surname' => $request->surname,
+                'email' => $request->email,
+                'number_sms' => $request->number_sms,
+            ]);
+        } else {
+            $user->update([
+                'name' => $request->name,
+                'surname' => $request->surname,
+                'email' => $request->email,
+                'number_sms' => $request->number_sms,
+                'password' => Hash::make($request->password),
+            ]);
+        }
+
+        return redirect('/privatsia');
+    }
+
     public function edit($id)
     {
         $user = User::find($id);
@@ -35,11 +80,11 @@ class AdminstrationController extends Controller
     {
         // dd($request);
         $request->validate([
-                'name' => ['required' , 'min:2'],
-                'surname' => ['required','min:2'],
-                'email' => ['required','email', new ValidationEmailUser],
-                'password' => ['required','min:6'],
-                'confirmpassword' => ['required_with:password','same:password','min:6']
+                'name' => ['required', 'min:2'],
+                'surname' => ['required', 'min:2'],
+                'email' => ['required', 'email', new ValidationEmailUser],
+                'password' => ['required', 'min:6'],
+                'confirmpassword' => ['required_with:password', 'same:password', 'min:6']
 
             ]
         );
@@ -107,9 +152,9 @@ class AdminstrationController extends Controller
         ]);
 
 
-        $kerko = User::where('name' ,'LIKE', '%'.$request->name.'%')->orWhere('name' ,'LIKE', '%'.$request->surname.'%')->get();
+        $kerko = User::where('name', 'LIKE', '%' . $request->name . '%')->orWhere('name', 'LIKE', '%' . $request->surname . '%')->get();
 
 
-        return view('search.index',compact('kerko'));
+        return view('search.index', compact('kerko'));
     }
 }

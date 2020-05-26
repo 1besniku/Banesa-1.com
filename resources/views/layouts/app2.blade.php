@@ -96,13 +96,16 @@
                             aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->name }} {{Auth::user()->surname}}
                     </button>
+
                     <div class="dropdown-menu dropdown-menu-right">
+                        <a class="nav-link" id="nav" href="privatsia">Privatsia</a>
+                        <a class="nav-link" id="nav" href="accont">Llogaria</a>
                         <a href="{{ route('logout') }}" class="dropdown-item" id="nav"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             Dil
                         </a>
-                        <a class="nav-link" id="nav" href="accont">Llogaria</a>
+
                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                               style="display: none;">
                             @csrf

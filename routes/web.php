@@ -48,6 +48,8 @@ Route::group(['middleware' => ['is_admin',]], function () {
     Route::delete('/aprovim/delete/{id}','AprovimiController@destroy')->name('aprovimi_delete');
 });
 Route::group(['middleware' => ['auth',]], function () {
+    Route::get('/privatsia', 'AdminstrationController@simpleUser')->name('simpleUser');
+    Route::post('/privatcy/update/{id}', 'AdminstrationController@update_privatcy')->name('update_privatcy');
     Route::get('/pronat', 'PronatController@index')->name('pronat');
     Route::get('/accont', 'LlogariaController@index')->name('accont');
     Route::delete('/llogaria/delete/{id}', 'LlogariaController@delete')->name('llogaria_delete');
