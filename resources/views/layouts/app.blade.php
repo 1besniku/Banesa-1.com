@@ -118,11 +118,11 @@
 <main class="row">
     <div class="col-12">
         <div id="img">
-            <div class="d-flex justify-content-center h-100">
-                <div class="searchbar">
-                    <input class="search_input" type="text" name="" placeholder="Search...">
-                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-                </div>
+            <div clss="row">
+            <div class="col-md-4"> @yield('search')</div>
+            <div class="col-md-4"> </div>
+            <div class="col-md-4"></div>
+
             </div>
         </div>
     </div>
@@ -137,7 +137,7 @@
         </div>
 
         <div class="col-md-3 col-sm-12">
-            @yield('search')
+
             <img src="/images_theem/sallone.jpg" width="300px" height="600">
         </div>
 
