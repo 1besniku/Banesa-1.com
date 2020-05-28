@@ -66,7 +66,7 @@ class AdminstrationController extends Controller
             ]);
         }
 
-        return redirect('/privatsia');
+        return redirect('privatsia')->with('status', 'Profile updated!');
     }
 
     public function edit($id)

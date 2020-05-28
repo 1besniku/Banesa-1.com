@@ -7,7 +7,11 @@
     <div class="container">
         <div class="row ">
             <div class="col-12">
-
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <h1 text align="center">Edito Perdoruesit</h1>
                 <form class="form-horizontal" method="post" action="/user/update/{{$user['id']}}" autocomplete="off">
                     @csrf

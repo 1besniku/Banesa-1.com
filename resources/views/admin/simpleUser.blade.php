@@ -7,7 +7,11 @@
     <div class="container">
         <div class="row ">
             <div class="col-12">
-
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <h6 text align="center">Perditso Te dhenat tua</h6>
                 <form class="form-horizontal" method="post" action="/privatcy/update/{{$user['id']}}">
                     @csrf

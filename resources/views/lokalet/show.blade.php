@@ -135,7 +135,8 @@
         </div>
         <div class="row mt-3">
             <div class="col-12">
-                <p>{{$property->komenti}}</p>
+                <h6 class="ml-2">Pershkrimi</h6>
+                <textarea class="form-control" rows="5">{{$property->komenti}}</textarea>
             </div>
 
         </div>

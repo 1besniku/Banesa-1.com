@@ -66,7 +66,7 @@
                         <h5>{{$array->llojishpalljes}}</h5>
                         <p>{{$array->komenti}}</p>
 
-                        <a href='/lokaletshow/{{$array->id}}' class="btn btn-info">Detajet</a>
+                        <a href='/ballinashow/{{$array->id}}' id="link"><i class="fas fa-caret-right" style="color: black"></i> Më Detajisht</a>
                     </div>
 
                 </div>

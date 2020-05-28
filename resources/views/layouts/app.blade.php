@@ -121,7 +121,7 @@
 <main class="row">
     <div class="col-12">
         <div id="img">
-            <div clss="row">
+            <div class="row">
             <div class="col-md-4"> @yield('search')</div>
             <div class="col-md-4"> </div>
             <div class="col-md-4"></div>
@@ -133,18 +133,18 @@
 
 <section id="section1">
     <div class="row d-flex ">
-        <div class="col-1"></div>
+        <div class="col-lg-2 col-md-2 col-sm-12"></div>
 
-        <div class="col-7">
+        <div class="col-lg-6 col-md-6 col-sm-12">
             @yield('content')
         </div>
 
-        <div class="col-md-3 col-sm-12">
+        <div class="col-lg-2  col-md-2 col-sm-12">
 
             <img src="/images_theem/sallone.jpg" width="300px" height="600">
         </div>
 
-        <div class="col-1"></div>
+        <div class="col-lg-4 col-md-4 col-sm-12 mt-2"></div>
 
 
     </div>

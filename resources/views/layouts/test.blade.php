@@ -24,20 +24,11 @@
 <body>
 
 
-<div class="row d-flex flex-lg-row flex-md-row flex-sm-column">
-   <div class="col-md-4">
-        <h1>Banjo</h1>
-       <h5>10 banjo</h5>
-   </div>
-    <div class="col-md-4">
-        <h1>Banjo</h1>
-        <h5>10 banjo</h5>
+<div class="row">
+    <div style="background-color: #2a4365" class="col-lg-4 col-md-4 col-sm-12  mb-4">jam ketu</div>
+    <div style="background-color: #2a4365" class="col-lg-4 col-md-4 col-sm-12  mb-4">jam ketu</div>
+    <div style="background-color: #2a4365" class="col-lg-4 col-md-4 col-sm-12 mb-4">jam ketu</div>
 
-    </div>
-    <div class="col-md-4">
-        <h1>Banjo</h1>
-        <h5>10 banjo</h5>
-    </div>
 </div>
 
 

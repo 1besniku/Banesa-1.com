@@ -67,21 +67,21 @@
 
 
 
-            <div class="row mt-3 d-flex ">
-                <div class="col-4">
+            <div class="row mt-3">
+                <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                     <div class="d-flex flex-column">
                         <h5>Banjo</h5>
                         <span style="margin-left:10px">{{$property->numri_banjove}} banjo.</span>
 
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                     <div class="d-flex flex-column">
                         <h5>Numri i Dhomave</h5>
                         <span style="margin-left:10px">{{$property->numri_dhomave}} dhoma.</span>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                     <div>
                         <h5>Siperfaqja</h5>
                         <span>{{$property->siperfaqja}}m2.</span>
@@ -90,19 +90,19 @@
             </div>
 
             <div class="row mt-3">
-                <div class="col-4">
+                <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                     <div class="d-flex flex-column">
                         <h5>Numri i Kateve(kati ne te cilin gjendet)</h5>
                         <span>Kati: {{$property->kati}} </span>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="d-flex flex-column">
+                <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
+                    <div >
                         <h5>Numri Ballkonave</h5>
                         <span>{{$property->ballkonat}} ballkona.</span>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                     <div>
                         <h5>Ngrohja</h5>
                         <span> {{$property->ngrohja}}$</span>
@@ -111,19 +111,19 @@
 
             </div>
             <div class="row mt-3">
-                <div class="col-4">
+                <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                     <div class="d-flex flex-column">
                         <h5>Komuna</h5>
                         <span>{{$property->komuna}} </span>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                     <div class="d-flex flex-column">
                         <h5>Adresa</h5>
                         <span>{{$property->adresa}}</span>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                     <div>
                         <h5>Qmimi</h5>
                         <span> {{$property->qmimi}}$</span>
@@ -133,7 +133,8 @@
         </div>
         <div class="row mt-3">
             <div class="col-12">
-                <p>{{$property->komenti}}</p>
+                <h6 class="ml-2">Pershkrimi</h6>
+                <textarea class="form-control" rows="5">{{$property->komenti}}</textarea>
             </div>
 
         </div>
