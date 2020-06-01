@@ -44,6 +44,18 @@ class DetajeController extends Controller
 
         return view('lokalet.show', compact('property', 'user', 'explode', 'arr'));
     }
+    public function deatjet($id){
+        //dd($id);
+        $property = Property::find($id);
+
+        $explode = explode(',',$property->foto);
+        $arr = ($explode[0]);
+        $user = User::find($property->user_id);
+
+        return view('lokalet.show', compact('property', 'user', 'explode', 'arr'));
+
+
+    }
     public function about(){
 
         return view('rrethNesh.index');

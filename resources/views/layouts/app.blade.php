@@ -122,9 +122,9 @@
     <div class="col-12">
         <div id="img">
             <div class="row">
-            <div class="col-md-4"> @yield('search')</div>
-            <div class="col-md-4"> </div>
-            <div class="col-md-4"></div>
+            <div class="col-lg-4 col-md-4 col-sm-12"> @yield('search')</div>
+            <div class="col-md-4 col-lg-4 col-sm-12"> </div>
+            <div class="col-md-4 col-lg-4 col-sm-12"></div>
 
             </div>
         </div>

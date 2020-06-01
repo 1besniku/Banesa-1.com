@@ -24,6 +24,7 @@ Route::get('/contact', 'KontakController@index')->name('contact');
 Route::get('/shtepia', 'ShpalljetController@shtepia')->name('shtepia');
 Route::get('/lokalet', 'ShpalljetController@lokalet')->name('ballina');
 Route::get('/banesa', 'ShpalljetController@banesa')->name('banesa');
+
 Route::post('/contact-store', 'KontakController@store')->name('contact_store');
 
 
@@ -49,6 +50,7 @@ Route::group(['middleware' => ['is_admin',]], function () {
 });
 Route::group(['middleware' => ['auth',]], function () {
     Route::get('/privatsia', 'AdminstrationController@simpleUser')->name('simpleUser');
+    Route::get('/detaje/{id}', 'DetajeController@deatjet')->name('detajet');
     Route::post('/privatcy/update/{id}', 'AdminstrationController@update_privatcy')->name('update_privatcy');
     Route::get('/pronat', 'PronatController@index')->name('pronat');
     Route::get('/accont', 'LlogariaController@index')->name('accont');

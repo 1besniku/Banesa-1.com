@@ -60,13 +60,14 @@
                 $explode = explode(',', $array->foto)
                 ?>
                 <div class="d-flex section-row flex-sm-row flex-column">
-
+                    <a href='/ballinashow/{{$array->id}}'>
                     <img src="{{asset('/images/'.$explode['0'])}}" width="200" height="100" alt="logo_section">
+                    </a>
                     <div class="div-small">
                         <h5>{{$array->llojishpalljes}}</h5>
                         <p>{{$array->komenti}}</p>
 
-                        <a href='/ballinashow/{{$array->id}}' id="link"><i class="fas fa-caret-right" style="color: black"></i> Më Detajisht</a>
+                        <a href='/ballinashow/{{$array->id}}'><i class="fas fa-caret-right" style="color: black"></i> Më Detajisht</a>
                     </div>
 
                 </div>

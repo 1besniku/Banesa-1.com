@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('titulli')
-   Lokal-i
+ Detaje
 @endsection
 @section('content')
 
-
+dsadsa
 
     <div class="card">
         <div class="card-header">{{$property->llojishpalljes}}</div>
@@ -71,7 +71,7 @@
 
             <div class="row mt-3">
                 <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column ">
                         <h5>Banjo</h5>
                         <span style="margin-left:10px">{{$property->numri_banjove}} banjo.</span>
 
@@ -98,7 +98,7 @@
                         <span>Kati: {{$property->kati}} </span>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 mt-2"">
+                <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                     <div class="d-flex flex-column">
                         <h5>Numri Ballkonave</h5>
                         <span>{{$property->ballkonat}} ballkona.</span>
@@ -142,6 +142,6 @@
         </div>
     </div>
     <div class="card-headerd">
-        <a class="btn btn-outline-info mt-3" href="/lokalet">Kthehu</a>
+        <a class="btn btn-outline-info mt-3" href="/accont">Kthehu</a>
     </div>
 @endsection

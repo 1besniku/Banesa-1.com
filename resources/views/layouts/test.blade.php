@@ -24,12 +24,7 @@
 <body>
 
 
-<div class="row">
-    <div style="background-color: #2a4365" class="col-lg-4 col-md-4 col-sm-12  mb-4">jam ketu</div>
-    <div style="background-color: #2a4365" class="col-lg-4 col-md-4 col-sm-12  mb-4">jam ketu</div>
-    <div style="background-color: #2a4365" class="col-lg-4 col-md-4 col-sm-12 mb-4">jam ketu</div>
 
-</div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
