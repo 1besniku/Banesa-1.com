@@ -55,6 +55,7 @@
     @foreach($arr as $array )
         <div class="d-flex flex-column row  flex-sm-column row">
 
+
             <div>
                 <?php
                 $explode = explode(',', $array->foto)
@@ -67,7 +68,7 @@
                         <h5>{{$array->llojishpalljes}}</h5>
                         <p>{{$array->komenti}}</p>
 
-                        <a href='/ballinashow/{{$array->id}}'><i class="fas fa-caret-right" style="color: black"></i> Më Detajisht</a>
+                        <a href='/ballinashow/{{$array->slug}}'><i class="fas fa-caret-right" style="color: black"></i> Më Detajisht</a>
                     </div>
 
                 </div>

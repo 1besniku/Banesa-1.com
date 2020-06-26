@@ -10,14 +10,14 @@ class BallinaController extends Controller
 {
     //
     public function index(){
-        $arr = \App\Property::latest()->paginate(7);
+        $arr  =   \App\Property::latest()->where('aprovimi','=','1')->paginate(10);
         //dd($arr);
         return view('ballina.index',compact('arr'));
     }
 
-    public function  show($id){
+    public function  show($slug){
 
-        $property = \App\Property::find($id);
+        $property = \App\Property::find($slug);
 
         $explode = explode(',',$property->foto);
         $arr = ($explode[0]);

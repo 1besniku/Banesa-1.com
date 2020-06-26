@@ -44,7 +44,6 @@
                                 <option disabled selected>Zgjedh</option>
                                 <option value="Shtepi">Shtepi</option>
                                 <option value="Banes">Banes</option>
-                                <option value="Tok">Truall</option>
                                 <option value="Lokal">Lokal</option>
                             </select>
                             @error('objekti')

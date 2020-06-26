@@ -11,10 +11,10 @@ class DetajeController extends Controller
 {
     //
 
-    public function shtepi($id){
+    public function shtepi($slug){
         //dd($id);
 
-        $property = Property::find($id);
+        $property = Property::find($slug);
 
         $explode = explode(',',$property->foto);
         $arr = ($explode[0]);
@@ -23,9 +23,9 @@ class DetajeController extends Controller
         return view('shpalljet.show', compact('property', 'user', 'explode', 'arr'));
 
     }
-    public function banesa($id){
+    public function banesa($slug){
         //dd($id);
-        $property = Property::find($id);
+        $property = Property::find($slug);
 
         $explode = explode(',',$property->foto);
         $arr = ($explode[0]);
@@ -34,9 +34,9 @@ class DetajeController extends Controller
         return view('shpalljet.banesat_show', compact('property', 'user', 'explode', 'arr'));
     }
 
-    public  function lokaletshow($id){
+    public  function lokaletshow($slug){
         //dd($id);
-        $property = Property::find($id);
+        $property = Property::find($slug);
 
         $explode = explode(',',$property->foto);
         $arr = ($explode[0]);
@@ -44,9 +44,9 @@ class DetajeController extends Controller
 
         return view('lokalet.show', compact('property', 'user', 'explode', 'arr'));
     }
-    public function deatjet($id){
+    public function deatjet($slug){
         //dd($id);
-        $property = Property::find($id);
+        $property = Property::find($slug);
 
         $explode = explode(',',$property->foto);
         $arr = ($explode[0]);

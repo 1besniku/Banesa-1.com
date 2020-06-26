@@ -67,7 +67,8 @@
                     <div class="div-small">
                         <h5>{{$arr->llojishpalljes}}</h5>
                         <p>{{$arr->komenti}}</p>
-                        <a href="/banesa/{{$arr->id}}" id="link"><i class="fas fa-caret-right" style="color: black"></i> Më Detajisht</a>
+
+                        <a href="/banesa/{{$arr->slug}}" id="link"><i class="fas fa-caret-right" style="color: black"></i> Më Detajisht</a>
                     </div>
 
                 </div>

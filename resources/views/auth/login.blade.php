@@ -28,11 +28,13 @@
                                 <label for="password">Password</label>
                             </div>
 
-                            <div class="custom-control custom-checkbox mb-3">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">Remember password</label>
-                            </div>
+
                             <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Hyr</button>
+                            @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="#">{{--href="{{ route('password.request') }}"--}}
+                                    Keni harruar fjalkalimin?
+                                </a>
+                            @endif
                             <hr class="my-4">
                             <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Kyqu me Google</button>
                             <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Kyqu me Facebook</button>

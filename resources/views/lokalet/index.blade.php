@@ -66,7 +66,7 @@
                     <div class="div-small">
                         <h5>{{$arr->llojishpalljes}}</h5>
                         <p>{{$arr->komenti}}</p>
-                        <a href="/lokaletshow/{{$arr->id}}"><i class="fas fa-caret-right" style="color: black"></i> Më Detajisht</a>
+                        <a href="/lokaletshow/{{$arr->slug}}"><i class="fas fa-caret-right" style="color: black"></i> Më Detajisht</a>
                     </div>
 
                 </div>

@@ -34,6 +34,7 @@ class CreatePropertiesTable extends Migration
             $table->float('lng')->nullable();
             $table->text('komenti');
             $table->bigInteger('qmimi');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

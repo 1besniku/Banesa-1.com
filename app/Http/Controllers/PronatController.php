@@ -7,9 +7,11 @@ use App\Photo;
 use App\Property;
 use App\toka;
 use App\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use \Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Hash;
+
 
 
 class PronatController extends Controller
@@ -50,7 +52,6 @@ class PronatController extends Controller
 
             ]);
 
-
             $property = Property::create([
                 'aprovimi' => 0,
                 'user_id' => auth()->user()->id,
@@ -71,9 +72,9 @@ class PronatController extends Controller
                 'ngrohja' => $request->ngrohja,
                 'kati' => $request->kati,
                 //  'foto' => $arr
-
-
             ]);
+
+
             // dd($pronat->foto);
             if ($request->hasfile('filename')) {
 
@@ -87,11 +88,11 @@ class PronatController extends Controller
                     $risize_image = Image::make($image->getRealPath());
                     $risize_image->resize(300, 300, function ($constration){
                         $constration->aspectRatio();
-                    })->save($destination_path .'/' . $fileName);
+                    })->resizeCanvas(300, 300,'center', false, '757575')->save($destination_path .'/' . $fileName);
 
                     $destination_path = public_path('/images');
                     $image->move($destination_path, $fileName);
-                    $img = Image::make(public_path('/images/' . $fileName))->resize(300, 300);
+                    $img = Image::make(public_path('/images/' . $fileName))->resize(300, 300)->resizeCanvas(300, 300,'center', false, '757575');
                     $img->save();
                     $data[] = $fileName;
                     //dd($img);
@@ -104,10 +105,14 @@ class PronatController extends Controller
                     //$img->save();
 
                 }
+                $slug_property =  "$property->id .$request->objekti . $request->komuna";
+                $slug = Str::slug( $slug_property,'-');
+
                 $arr = implode(',', $data);
                // dd($arr);
                 $property->update([
                     'foto' => $arr,
+                    'slug' => $slug,
                 ]);
 
 

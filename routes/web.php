@@ -31,10 +31,10 @@ Route::post('/contact-store', 'KontakController@store')->name('contact_store');
 Route::post('/search/shpalljet', 'ShpalljetController@search')->name('search_shpalljet');
 Route::get('/shpalljet' , 'ShpalljetController@index')->name('shpalljet');
 Route::post('/pronat-store', 'PronatController@store')->name('pronat_store');
-Route::get('/shtepia/{id}', 'DetajeController@shtepi')->name('detajet');
-Route::get('/ballinashow/{id}', 'BallinaController@show')->name('ballina_show');
-Route::get('/lokaletshow/{id}', 'DetajeController@lokaletshow')->name('lokalet_show');
-Route::get('/banesa/{id}', 'DetajeController@banesa')->name('ballina_show');
+Route::get('/shtepia/{slug}', 'DetajeController@shtepi')->name('detajet');
+Route::get('/ballinashow/{slug}', 'BallinaController@show')->name('ballina_show');
+Route::get('/lokaletshow/{slug}', 'DetajeController@lokaletshow')->name('lokalet_show');
+Route::get('/banesa/{slug}', 'DetajeController@banesa')->name('ballina_show');
 Route::group(['middleware' => ['is_admin',]], function () {
     Route::get('/aprovim', 'AprovimiController@index')->name('aprovimi');
     Route::get('/message', 'KontakController@show')->name('message');
